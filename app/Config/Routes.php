@@ -33,6 +33,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/Home', 'Home::index');
 $routes->get('/Login', 'Login::index');
 
+
+// routes untuk halaman pohon udah include dengan get/add/push/delete
+$routes->resource('/pohon', ['controller' => 'pohonController']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
