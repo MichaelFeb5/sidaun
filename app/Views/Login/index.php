@@ -112,7 +112,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <a class="btn btn-lg btn-primary w-100 fs-6" onclick="check()">Login</a>
-                        <a class="btn btn-lg btn-primary w-100 fs-6" href="<?php current_url();?>/Login/registrasi">Registrasi</a>
+                        <a class="btn btn-lg btn-primary w-100 fs-6" href="<?php current_url(); ?>/Login/registrasi">Registrasi</a>
                     </div>
                 </div>
             </div>
@@ -134,40 +134,25 @@
         model.password = password;
         form.model = model;
 
-        $.post("<?= current_url(); ?>/Login/simpan", form, function(res) {
-            console.log(res);
-            // if (res.code == 200) {
-            //     Swal.fire(
-            //         'Berhasil!',
-            //         'Data berhasil disimpan !.',
-            //         'success'
-            //     );
-            //     grid.draw(true);
-            //     app.page = "grid";
-            // } else if (res.code == 400) {
-            //     app.form.validation = res.message;
-            // } else Swal.fire('Info!', res.message, 'warning');
-        }).fail(function(xhr) {
-            console.log(xhr);
-            Swal.fire('Error', "Server gagal merespon", 'error');
-        }).always(function() {
-            // app.form.isSaving = false;
-        })
-
         if (username == '' || password == '') {
             Swal.fire('Ups !', 'Isi Username dan Password', 'warning')
         } else {
-            // bisa ditambah function dalam paramsnya untuk menentukan function mana yang dipakai
-            // const url = '../../../Controller/login.php'
-            // const func = 'verifikasi'
-            // const params = 'function=' + func + '&username=' + username + '&password=' + password
-            // postData(url, params, function(response) {
-            //     if (response == "null") {
-            //         Swal.fire('Ups !', 'Username atau Password salah ! ', 'error', '')
-            //     } else {
-            //         window.location.href = "../dashboard/index.php";
-            //     }
-            // })
+            $.post("<?= base_url(); ?>/Login/check", form, function(res) {
+                if (res.code == 200) {
+                    
+                } else {
+                    Swal.fire({
+                        title: 'Ups',
+                        text: res.codeText,
+                        icon: 'error',
+                    })
+                }
+            }).fail(function(xhr) {
+                console.log(xhr);
+                Swal.fire('Error', "Server gagal merespon", 'error');
+            }).always(function() {
+                // app.form.isSaving = false;
+            })
         }
     }
 </script>
