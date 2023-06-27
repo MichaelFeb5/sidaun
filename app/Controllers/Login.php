@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
 use CodeIgniter\Validation\Rules;
 use CodeIgniter\Validation\Exceptions\ValidationException;
 
@@ -17,7 +18,7 @@ class Login extends BaseController
 
     public function index()
     {
-        return view('Login/index.php');
+        return view('Login/index');
     }
 
     public function registrasi()
