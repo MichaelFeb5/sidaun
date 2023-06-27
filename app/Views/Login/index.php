@@ -99,7 +99,7 @@
             <div class="col-md-6 right-box">
                 <div class="row align-items-center">
                     <div class="header-text mb-3">
-                        <h2>Hello</h2>
+                        <h2>Test</h2>
                         <p>Silahkan Login Menggunakan Akun Yang Sudah Ada.</p>
                     </div>
                     <div class="input-group mb-3">
@@ -139,7 +139,7 @@
         } else {
             $.post("<?= base_url(); ?>/Login/check", form, function(res) {
                 if (res.code == 200) {
-                    
+
                 } else {
                     Swal.fire({
                         title: 'Ups',
