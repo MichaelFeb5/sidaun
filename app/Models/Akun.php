@@ -4,16 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Pohon extends Model
+class Akun extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'pohons';
-    protected $primaryKey       = 'id';
+    protected $table            = 'tb_akun';
+    protected $primaryKey       = 'username';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = 
+    [
+        'username',
+        'password'
+    ];
 
     // Dates
     protected $useTimestamps = false;
