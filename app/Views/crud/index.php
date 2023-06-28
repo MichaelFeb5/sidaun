@@ -23,33 +23,40 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Simple Datatable
+                Data Pohon
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>City</th>
-                            <th>Status</th>
+                            <?php $i = 1; ?>
+                        <?php foreach($pohon as $p) : ?>
+                            <th>Nomor</th>
+                            <th>Nama Pohon</th>
+                            <th>Jenis Pohon</th>
+                            <th>Musim Pohon</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Graiden</td>
-                            <td>vehicula.aliquet@semconsequat.co.uk</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
+                            <td><?= $i ?></td>
+                            <td><?= $p->nama_pohon ?></td>
+                            <td><?= $p->nama_jenis ?></td>
+                            <td><?= $p->musim_pohon ?></td>
                             <td>
-                                <span class="badge bg-success">Edit</span>
-                                <span class="badge bg-warning">View</span>
-                                <span class="badge bg-danger">Hapus</span>
+                                <button class="btn btn-success"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-warning"><i class="bi bi-eye"></i></button>
+                                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
+                    <?php $i++ ?>
+                    <?php endforeach; ?>
                 </table>
+                <div class="tombolButton text-end">
+                <button class="btn btn-success">Tambah data <i class="bi bi-plus"></i></button>
+                </div>
             </div>
         </div>
 
