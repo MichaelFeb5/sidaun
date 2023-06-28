@@ -36,6 +36,9 @@ $routes->get('/Home', 'Home::index');
 $routes->get('/Login', 'Login::index');
 $routes->get('/Jenis', 'Jenis::index');
 
+// routes untuk halaman datatables
+$routes->get('/Datatables', 'Datatables::index');
+
 
 
 
