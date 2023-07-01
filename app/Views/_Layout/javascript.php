@@ -7,3 +7,5 @@
 
 <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
 <script src="assets/compiled/js/pages/simple-datatables.js"></script>
+<script src="assets/extensions/jquery/jquery.js"></script>
+<script src="assets/extensions/sweetalert2/sweetalert2.js"></script>
