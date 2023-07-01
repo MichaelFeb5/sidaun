@@ -32,7 +32,6 @@ class Login extends BaseController
         // Inisialisasi Data Model
         $tb_akun = new \App\Models\tb_akun();
         $data = ($this->request->getPost('model') ? $this->request->getPost('model') : []);
-
         $akun = $tb_akun->find($data['username']);
         $res = [];
 

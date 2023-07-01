@@ -1,6 +1,4 @@
 <?= $this->extend('_Layout/index') ?>
-
-
 <?= $this->section('content') ?>
 
 <div class="page-heading">
@@ -23,15 +21,60 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Data Pohon
+                <h5 class="card-title">Minimal jQuery Datatable</h5>
             </div>
-            
+            <div class="card-body">
+                <div class="table-responsive datatable-minimal">
+                    <table class="table" id="table2">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>City</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Graiden</td>
+                                <td>vehicula.aliquet@semconsequat.co.uk</td>
+                                <td>076 4820 8838</td>
+                                <td>Offenburg</td>
+                                <td>
+                                    <span class="badge bg-success">Active</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 </div>
 
-<script>
-
-</script>
-
 <?= $this->endSection('content') ?>
+
+<?= $this->section('css') ?>
+
+<?= $this->endSection('css') ?>
+
+<?= $this->section('javascript') ?>
+
+<script>
+    $(document).ready(function() {
+        $('#table2').DataTable({
+            processing: true,
+            serverSide: false,
+            ajax: {
+                url: "<?= base_url() ?>/Jenis/grid",
+                dataSrc: function(data) {
+                    console.log(data);
+                    return result;
+                }
+            },
+            dataType: "json",
+        });
+    });
+</script>
+<?= $this->endSection('javascript') ?>
