@@ -4,12 +4,12 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TbPohon extends Migration
+class TbTanaman extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_pohon' => [
+            'id_tanaman' => [
                 'type'           => 'INT',
                 'constraint'     => 50,
                 'unsigned'       => true,
@@ -20,22 +20,22 @@ class TbPohon extends Migration
                 'constraint'     => 50,
                 'unsigned'       => true,
             ],
-            'nama_pohon' => [
+            'nama_tanaman' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'umur_pohon' => [
+            'umur_tanaman' => [
                 'type' => 'INT',
                 'constraint' => '5',
             ],
-            'tinggi_pohon' => [
+            'tinggi_tanaman' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'deskripsi_pohon' => [
+            'deskripsi_tanaman' => [
                 'type'       => 'TEXT',
             ],
-            'musim_pohon' => [
+            'musim_tanaman' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
@@ -45,15 +45,15 @@ class TbPohon extends Migration
                 'null'       => true, // Jika kolom gambar tidak wajib diisi
             ],
         ]);
-        $this->forge->addPrimaryKey('id_pohon');
+        $this->forge->addPrimaryKey('id_tanaman');
         $this->forge->addForeignKey('id_jenis', 'data_jenis', 'id_jenis');
-        $this->forge->createTable('data_pohon');
+        $this->forge->createTable('data_tanaman');
 
     }
 
     public function down()
     {
         // Drop tabel data pohon
-        $this->forge->dropTable('data_pohon');
+        $this->forge->dropTable('data_tanaman');
     }
 }
