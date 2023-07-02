@@ -23,13 +23,19 @@
 
     body {
         font-family: 'Poppins', sans-serif;
-        background: aliceblue;
+        background: #588157;
+        color: white;
+    }
+
+    h2 {
+        color: white;
     }
 
     /*------------ Login container ------------*/
 
     .box-area {
         width: 930px;
+        background-color: #77ad76 !important;
     }
 
     /*------------ Right box ------------*/
@@ -50,6 +56,55 @@
 
     .rounded-5 {
         border-radius: 30px;
+    }
+
+    /*------------ Custom Button ------------*/
+    #primary-btn {
+        background-color: #344E41;
+        color: #ffffff;
+        border-radius: 10px;
+    }
+
+    .button-23 {
+        background-color: #FFFFFF;
+        border: 1px solid #22222200;
+        border-radius: 8px;
+        box-sizing: border-box;
+        color: #222222;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        margin: 0;
+        outline: none;
+        padding: 13px 23px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        touch-action: manipulation;
+        transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+        user-select: none;
+        -webkit-user-select: none;
+        width: auto;
+    }
+
+    .button-23:focus-visible {
+        box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+        transition: box-shadow .2s;
+    }
+
+    .button-23:active {
+        background-color: #F7F7F7;
+        border-color: #000000;
+        transform: scale(.96);
+    }
+
+    .button-23:disabled {
+        border-color: #DDDDDD;
+        color: #DDDDDD;
+        cursor: not-allowed;
+        opacity: 1;
     }
 
 
@@ -82,12 +137,12 @@
 
         <!----------------------- Login Container -------------------------->
         <!--------------------------- Left Box ----------------------------->
-        <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <div class="row rounded-5 p-3 bg-white shadow box-area">
             <div class="col-md-6 right-box">
                 <div class="row align-items-center">
                     <div class="header-text mb-3">
-                        <h2>Registrasi</h2>
-                        <p>Silahkan masukan username dan password</p>
+                        <h2>Join SiDaun Today!</h2>
+                        <p>Create your SiDaun account to start exploring the plants in the botanical garden.</p>
                     </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Username" id="username">
@@ -98,18 +153,16 @@
                     <div class="input-group mb-4 mt-1 d-flex justify-content-between">
                     </div>
                     <div class="input-group mb-3">
-                        <a class="btn btn-lg btn-primary w-100 fs-6" onclick="registrasi()">Registrasi</a>
-                        <a class="btn btn-lg btn-primary w-100 fs-6 mt-2" href="<?php base_url(); ?>/Login">Login</a>
+                        <a class="button-23 w-100 fs-6" style="border-radius: 10px; margin-bottom: 8px" href="<?php base_url(); ?>/Login">Login</a>
+                        <a class="button-23 w-100 fs-6" id="primary-btn" onclick="registrasi()">Registrasi</a>
                     </div>
                 </div>
             </div>
             <!-------------------- ------ Right Box ---------------------------->
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background-image: linear-gradient(#0575E6, #021B79) !important;">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
                 <div class="featured-image mb-3">
-                    <img src="../../../Assets/images/1.png" class="img-fluid" style="width: 250px;">
+                    <img src="assets/images/casual-life-3d-monstera-plant-with-holes-in-its-leaves.png" class="img-fluid" style="width: 180px;">
                 </div>
-                <p class="text-white fs-2 fw-bold">SILAUNDRY</p>
-                <small class="text-white text-wrap text-center"> Sistem Informasi Bisnis Laundry.</small>
             </div>
         </div>
     </div>
