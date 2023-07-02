@@ -79,16 +79,17 @@
 
         model.nama_jenis = nama_jenis;
         model.nama_family = nama_family;
+        form.isNew = 1;
         form.model = model;
         
-        $.post("<?= base_url(); ?>/Jenis/simpan", form, function(res) {
+        $.post("<?= base_url(); ?>Jenis/simpan", form, function(res) {
             if (typeof res.validasi == 'undefined') {
                 Swal.fire({
                     title: 'Berhasil',
                     text: "Data Berhasil Ditambahkan",
                     icon: 'success',
                 }).then((result) => {
-                    window.location.replace("<?= base_url(); ?>/Jenis");
+                    window.location.replace("<?= base_url(); ?>Jenis");
                 })
             } else {
                 Swal.fire('Ups', "Data Harus Lengkap", 'error');

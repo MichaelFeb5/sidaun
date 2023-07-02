@@ -18,54 +18,13 @@
                     </ol>
                 </nav>
             </div>
+
+        </div>
+        <div class="d-flex mb-3 justify-content-end">
+            <button onclick="onNew()" style="width: 150px;" class="btn btn-primary "><i class="fa fa-plus"></i> Tambah</i></button>
         </div>
     </div>
 
-    <!-- <section class="section">
-        <div class="row" id="table-striped">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <h4 class="card-title">Jenis Tanaman</h4>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-body pt-0">
-                            <p class="card-text">
-                                Tabel ini berisi Jenis tanaman
-                            </p>
-                        </div>
-                        <div class="ms-4 me-4 mb-4">
-                            <div class="table-responsive">
-                                <table class="table table-striped mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Jenis</th>
-                                            <th>Nama Family</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-bold-500">1</td>
-                                            <td>$15/hr</td>
-                                            <td class="text-bold-500">UI/UX</td>
-                                            <td>
-                                                <a href="#"><i class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="mail"></i></a>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Minimal jQuery Datatable start -->
     <section class="section">
         <div class="card">
             <div class="card-header">
@@ -79,7 +38,7 @@
                                 <th>No</th>
                                 <th>Nama Jenis</th>
                                 <th>Nama Family</th>
-                                <th>Aksi</th>
+                                <th width="12%">Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -92,12 +51,51 @@
 <?= $this->endSection('content') ?>
 <?= $this->section('javascript') ?>
 <script>
+    function onNew() {
+        window.location.href = '<?= base_url()?>jenis/tambah'
+    }
+
+    function onEdit(id) {
+        window.location.href = '<?= base_url(); ?>jenis/detail/' + id
+    }
+
+    function onDelete(id) {
+        Swal.fire({
+            title: 'Anda Yakin ?',
+            text: "Data yang terhapus tidak dapat dikembalikan!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Tidak',
+            confirmButtonText: 'Ya'
+        }).then((result) => {
+            if (result.value) {
+                $.post(`<?= base_url() ?>Jenis/hapus/` + id, function(res) {
+                    console.log('onDelete Res', res);
+                    if (res == true) {
+                        Swal.fire('Terhapus!', 'Data berhasil dihapus !.', 'success')
+                        window.location.href = "<?= base_url() ?>Jenis"
+                    } else {
+                        Swal.fire('Info!', res.message, 'warning')
+                    }
+                }).fail(function(xhr) {
+                    console.log('onDelete Fail', xhr);
+                    Swal.fire('Error', "Server gagal merespon", 'error');
+                }).always(function() {
+                    app.form.isSaving = false;
+                    btn.removeAttr('disabled', true).html(`<i class="feather icon-trash"></i>`);
+                });
+            }
+        });
+    }
+
     $(document).ready(function() {
         $('#table2').DataTable({
             processing: true,
             serverSide: false,
             ajax: {
-                url: "<?= base_url() ?>/Jenis/grid",
+                url: "<?= base_url() ?>Jenis/grid",
                 dataSrc: function(data) {
                     console.log(data.data);
                     return data.data; // Ubah "result" menjadi "data.data"
@@ -123,9 +121,6 @@
                                                     <button type="button" onclick="onDelete(` + val + `)"
                                                          class="btn btn-sm btn-sm btn-outline-danger waves-effect waves-light"><i
                                                             class="fas fa-trash"></i></button>
-                                                    <a type="button" onclick="onDetail(` + val + `)"
-                                                         class="btn btn-sm btn-outline-primary waves-effect waves-light"><i
-                                                            class="fas fa-search"></i></a>
                                                     <a type="button" onclick="onEdit(` + val + `)"
                                                          class="btn btn-sm btn-outline-warning waves-effect waves-light"><i
                                                             class="fas fa-edit"></i></a>
@@ -133,6 +128,10 @@
                     }
                 },
             ],
+            columnDefs: [{
+                targets: 3,
+                className: 'text-center'
+            }],
         });
     });
 </script>

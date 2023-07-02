@@ -40,6 +40,17 @@ class Jenis extends BaseController
         return view('Jenis/form', $data);
     }
 
+    public function detail($id)
+    {
+        $DataJenis = new \App\Models\DataJenis();
+        $response = $DataJenis->find($id);
+        $data = [
+            'title' => 'Jenis',
+            'model' => $response,
+        ];
+        return view('Jenis/formEdit', $data);
+    }
+
     public function simpan()
     {
         $DataJenis = new \App\Models\DataJenis();
@@ -61,14 +72,29 @@ class Jenis extends BaseController
         $this->validation->setRules($validationRules);
 
         // Take data dari view & check data jika ada validasi
+        $isNew = $this->request->getPost('isNew');
         $data = ($this->request->getPost('model') ? $this->request->getPost('model') : []);
+
         if (!$this->validation->run($data)) {
             $res['validasi'] = $this->validation->getErrors();
             return $this->response->setJSON($res);
         }
 
         // Insert data jika validasi tidak terpenuhi
-        $res = $DataJenis->insert($data);
-        return $this->response->setJSON($res);
+        if ($isNew == 1) {
+            $res = $DataJenis->insert($data);
+            return $this->response->setJSON($res);
+        } else {
+            $res = $DataJenis->update($data['id_jenis'], $data);
+            return $this->response->setJSON($res);
+        }
+    }
+
+    public function hapus($id)
+    {
+        $DataJenis = new \App\Models\DataJenis();
+        $response = $DataJenis->delete($id);
+    
+        return $this->response->setJSON($response);
     }
 }
