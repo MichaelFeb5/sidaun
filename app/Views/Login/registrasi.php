@@ -164,25 +164,6 @@
             // app.form.isSaving = false;
         })
     }
-
-    function postData(url, params, callback) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                callback(this.responseText);
-            }
-        }
-        xhr.send(params);
-    }
-
-    function post(url, params, callback) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send(params);
-    }
 </script>
 
 <script src="<?php current_url() ?>/assets/extensions/sweetalert2/sweetalert2.js"></script>

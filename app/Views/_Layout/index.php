@@ -3,7 +3,7 @@
 <head>
     <?php include 'head.php'?>
 </head>
-
+<?= $this->renderSection('css') ?>
 <body>
     <div id="app">
         <?php include 'sidebar.php' ?>
@@ -21,6 +21,7 @@
         </div>
     </div>
     <?php include 'javascript.php' ?>
+    <?= $this->renderSection('javascript') ?>
 </body>
 
 </html>
