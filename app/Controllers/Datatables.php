@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\DataPohon;
+use App\Models\DataTanaman;
 use App\Models\DataJenis;
 use App\Controllers\BaseController;
 
@@ -13,7 +13,7 @@ class Datatables extends BaseController
     protected $jenisModel;
     public function __construct( )
     {
-        $this-> pohonModel = new DataPohon();
+        $this-> pohonModel = new DataTanaman();
         $this-> jenisModel = new DataJenis();
     }
 
