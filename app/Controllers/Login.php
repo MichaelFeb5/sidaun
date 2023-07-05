@@ -30,7 +30,7 @@ class Login extends BaseController
     public function check()
     {
         // Inisialisasi Data Model
-        $tb_akun = new \App\Models\tb_akun();
+        $tb_akun = new \App\Models\Akun();
         $data = ($this->request->getPost('model') ? $this->request->getPost('model') : []);
         $akun = $tb_akun->find($data['username']);
         $res = [];
@@ -54,7 +54,7 @@ class Login extends BaseController
     public function simpanRegistrasi()
     {
         // Inisialisasi Data Model
-        $tb_akun = new \App\Models\tb_akun();
+        $tb_akun = new \App\Models\Akun();
 
         // Insisialisasi validasi
         $validationRules = [
