@@ -123,8 +123,6 @@
 
 <script>
     var form = {};
-
-
     function check() {
         const username = $("#username").val();
         const password = $("#password").val();
