@@ -107,34 +107,35 @@
     var form = {};
     var model = {};
 
-    // function onSave() {
-    //     const nama_jenis = $("#nama_jenis").val();
-    //     const nama_family = $("#nama_family").val();
+    function onSave() {
+        var dataEditor = snow.root.innerHTML;
+        // const nama_jenis = $("#nama_jenis").val();
+        // const nama_family = $("#nama_family").val();
 
-    //     model.nama_jenis = nama_jenis;
-    //     model.nama_family = nama_family;
-    //     form.isNew = 1;
-    //     form.model = model;
+        // model.nama_jenis = nama_jenis;
+        // model.nama_family = nama_family;
+        // form.isNew = 1;
+        // form.model = model;
 
-    //     $.post("<?= base_url(); ?>Jenis/simpan", form, function(res) {
-    //         if (typeof res.validasi == 'undefined') {
-    //             Swal.fire({
-    //                 title: 'Berhasil',
-    //                 text: "Data Berhasil Ditambahkan",
-    //                 icon: 'success',
-    //             }).then((result) => {
-    //                 window.location.replace("<?= base_url(); ?>Jenis");
-    //             })
-    //         } else {
-    //             Swal.fire('Ups', "Data Harus Lengkap", 'error');
-    //         }
-    //     }).fail(function(xhr) {
-    //         console.log(xhr);
-    //         Swal.fire('Error', "Server gagal merespon", 'error');
-    //     }).always(function() {
-    //         // app.form.isSaving = false;
-    //     })
-    // }
+        // $.post("<?= base_url(); ?>Jenis/simpan", form, function(res) {
+        //     if (typeof res.validasi == 'undefined') {
+        //         Swal.fire({
+        //             title: 'Berhasil',
+        //             text: "Data Berhasil Ditambahkan",
+        //             icon: 'success',
+        //         }).then((result) => {
+        //             window.location.replace("<?= base_url(); ?>Jenis");
+        //         })
+        //     } else {
+        //         Swal.fire('Ups', "Data Harus Lengkap", 'error');
+        //     }
+        // }).fail(function(xhr) {
+        //     console.log(xhr);
+        //     Swal.fire('Error', "Server gagal merespon", 'error');
+        // }).always(function() {
+        //     // app.form.isSaving = false;
+        // })
+    }
     $(document).ready(function() {
         // Get data Jenis
         let dataJenis = [];
