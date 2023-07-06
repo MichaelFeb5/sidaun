@@ -45,6 +45,10 @@ $routes->get('/Datatables', 'Datatables::index');
 
 // routes untuk halaman pohon udah include dengan get/add/push/delete (api)
 $routes->resource('/pohon', ['controller' => 'pohonController']);
+
+
+
+$routes->get('/Viewer', 'Viewer::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
