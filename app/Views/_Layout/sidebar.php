@@ -39,8 +39,8 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                
-                <li class="sidebar-item <?= ($title=='Data Table')?'active':'' ?>">
+
+                <li class="sidebar-item <?= ($title == 'Data Table') ? 'active' : '' ?>">
                     <a href="<?= base_url('/datatables') ?>" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
                         <span>Data Pohon</span>

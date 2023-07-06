@@ -67,27 +67,28 @@
                                             <div class="form-group">
                                                 <label for="desktipsi_tanaman">Deskripsi</label>
                                                 <div id="snow" name="deskripsi_tanaman">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="musin_tanaman">Musim</label>
-                                                <input type="text" id="musin_tanaman" class="form-control" name="musin_tanaman" placeholder="Musim" />
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="musim_tanaman">Musim</label>
+                                                    <input type="text" id="musim_tanaman" class="form-control" name="musim_tanaman" placeholder="Musim" />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label for="musin_tanaman">Gambar</label>
-                                                <input type="file" class="image-preview-filepond" />
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="gambar_tanaman">Gambar</label>
+                                                    <input type="file" class="image-preview-filepond" data-filepond>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 d-flex mt-3">
-                                            <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
-                                                Submit
-                                            </button>
-                                            <button class="btn btn-danger me-1 mb-1">
-                                                Batalkan
-                                            </button>
+                                            <div class="col-12 d-flex mt-3">
+                                                <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
+                                                    Submit
+                                                </button>
+                                                <button class="btn btn-danger me-1 mb-1" onclick="onBatal()">
+                                                    Batalkan
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +97,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
 
@@ -107,35 +107,80 @@
     var form = {};
     var model = {};
 
+    const inputElement = document.querySelector('.image-preview-filepond');
+    const pond = FilePond.create(inputElement, {
+        allowMultiple: false,
+        acceptedFileTypes: ['image/*'],
+    });
+
     function onSave() {
-        var dataEditor = snow.root.innerHTML;
-        // const nama_jenis = $("#nama_jenis").val();
-        // const nama_family = $("#nama_family").val();
+        let nama_tanaman = $("#nama_tanaman").val();
+        let id_jenis = $("#id_jenis").val();
+        let umur_tanaman = $("#umur_tanaman").val();
+        let tinggi_tanaman = $("#tinggi_tanaman").val();
+        let musim_tanaman = $("#musim_tanaman").val();
 
-        // model.nama_jenis = nama_jenis;
-        // model.nama_family = nama_family;
-        // form.isNew = 1;
-        // form.model = model;
+        // Mendapatkan konten dari Quill Editor
+        var textDeskripsi = snow.getContents();
+        // Mengkonversi konten menjadi format JSON
+        let deskripsi_tanaman = JSON.stringify(textDeskripsi);
+        const file = pond.getFile();
 
-        // $.post("<?= base_url(); ?>Jenis/simpan", form, function(res) {
-        //     if (typeof res.validasi == 'undefined') {
-        //         Swal.fire({
-        //             title: 'Berhasil',
-        //             text: "Data Berhasil Ditambahkan",
-        //             icon: 'success',
-        //         }).then((result) => {
-        //             window.location.replace("<?= base_url(); ?>Jenis");
-        //         })
-        //     } else {
-        //         Swal.fire('Ups', "Data Harus Lengkap", 'error');
-        //     }
-        // }).fail(function(xhr) {
-        //     console.log(xhr);
-        //     Swal.fire('Error', "Server gagal merespon", 'error');
-        // }).always(function() {
-        //     // app.form.isSaving = false;
-        // })
+        if (nama_tanaman == "" || id_jenis == "" || umur_tanaman == "" || tinggi_tanaman == "" ||
+            umur_tanaman == "" || musim_tanaman == "" || textDeskripsi == "" || file == null) {
+            Swal.fire('Ups !', "Isi Seluruh Data", 'warning');
+        } else {
+            // Masukan Ke dalam model
+            model.nama_tanaman = $("#nama_tanaman").val();
+            model.id_jenis = $("#id_jenis").val();
+            model.umur_tanaman = $("#umur_tanaman").val();
+            model.tinggi_tanaman = $("#tinggi_tanaman").val();
+            model.musim_tanaman = $("#musim_tanaman").val();
+            model.deskripsi_tanaman = JSON.stringify(textDeskripsi);
+
+            var formData = new FormData();
+            formData.append("file", file.file);
+            formData.append("isNew", 1);
+            formData.append("model", JSON.stringify(model));
+
+            $.ajax({
+                url: "<?= base_url(); ?>tanaman/simpan",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    if (typeof res.validasi == 'undefined') {
+                        if (typeof res.validasi == 'undefined') {
+                            Swal.fire({
+                                title: 'Berhasil',
+                                text: "Data Berhasil Ditambahkan",
+                                icon: 'success',
+                            }).then((result) => {
+                                window.location.replace("<?= base_url(); ?>Tanaman");
+                            })
+                        } else {
+                            Swal.fire('Ups', "Data Harus Lengkap", 'error');
+                        }
+                    } else {
+                        Swal.fire('Ups', "Data Harus Lengkap", 'error');
+                    }
+                },
+                error: function(xhr) {
+                    console.log(xhr);
+                    Swal.fire('Error', "Server gagal merespon", 'error');
+                },
+                complete: function() {
+                    // app.form.isSaving = false;
+                }
+            });
+        }
     }
+
+    function onBatal() {
+        window.location.replace("<?= base_url(); ?>Tanaman");
+    }
+
     $(document).ready(function() {
         // Get data Jenis
         let dataJenis = [];
@@ -149,7 +194,7 @@
 
         // Set Editor
         snow.insertText(0, 'Hello', 'bold', true);
-        
+
         $('.js-example-basic-single').select2({
             data: dataJenis
         });
