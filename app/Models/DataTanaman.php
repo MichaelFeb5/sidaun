@@ -10,6 +10,7 @@ class DataTanaman extends Model
     protected $primaryKey       = 'id_tanaman';
     protected $useAutoIncrement = true;
     protected $allowedFields    = [
+        'id_jenis',
         'nama_tanaman',
         'umur_tanaman',
         'tinggi_tanaman',
