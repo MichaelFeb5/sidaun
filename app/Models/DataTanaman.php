@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class DataTanaman extends Model
 {
     protected $table            = 'data_tanaman';
-    protected $primaryKey       = 'id_pohon';
+    protected $primaryKey       = 'id_tanaman';
     protected $useAutoIncrement = true;
     protected $allowedFields    = [
         'nama_tanaman',
@@ -34,6 +34,16 @@ class DataTanaman extends Model
         $builder->join('data_jenis', 'data_jenis.id_jenis = data_tanaman.id_jenis');
         $query = $builder->get();
         return $query->getResult();
+    }
+
+    public function getDetailWithJenis($id)
+    {
+        $this->select('data_tanaman.*, data_jenis.*');
+        $this->join('data_jenis', 'data_jenis.id_jenis = data_tanaman.id_jenis', 'left');
+        $this->where('data_tanaman.id_tanaman', $id);
+        $query = $this->get();
+
+        return $query->getRow();
     }
 }
 

@@ -12,6 +12,19 @@ class Tanaman extends BaseController
         return view('Tanaman/index', $data);
     }
 
+    public function detail($id)
+    {
+        $DataTanaman = new \App\Models\DataTanaman();
+        $response = $DataTanaman->getDetailWithJenis($id);
+
+        $data = [
+            'title' => 'Tanaman',
+            'dataTanaman' => json_encode($response),
+        ];
+
+        return view('Tanaman/detail', $data);
+    }
+
     public function tambah()
     {
         $DataJenis = new \App\Models\DataJenis();
