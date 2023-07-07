@@ -66,7 +66,7 @@
                     <h4 class="card-title">Gambar Tanaman</h4>
                 </div>
                 <div class="card-body">
-                    <img src="/public/assets/images/tanaman/1688652595_25b9aa34c64aaeb62d96.jpg" alt="bla">
+                    <img src="<?=base_url('assets/images/tanaman/' . $pohon[0]->gambar) ?> alt="bla">
                 </div>
             </div>
         </section>

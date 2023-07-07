@@ -56,4 +56,13 @@ class DataTanaman extends Model
 
         return $query->getResult();
     }
+
+    public function getAllWithJenis()
+    {
+        $this->select('data_tanaman.*, data_jenis.*');
+        $this->join('data_jenis', 'data_jenis.id_jenis = data_tanaman.id_jenis', 'left');
+        $query = $this->get();
+
+        return $query->getResult();
+    }
 }
