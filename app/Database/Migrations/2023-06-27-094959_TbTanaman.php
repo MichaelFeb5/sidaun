@@ -44,6 +44,14 @@ class TbTanaman extends Migration
                 'constraint' => '255',
                 'null'       => true, // Jika kolom gambar tidak wajib diisi
             ],
+            'created_at' => [
+                'type'       => 'DATETIME',
+                'null' => true,
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+                'null' => true,
+            ],
         ]);
         $this->forge->addPrimaryKey('id_tanaman');
         $this->forge->addForeignKey('id_jenis', 'data_jenis', 'id_jenis');
