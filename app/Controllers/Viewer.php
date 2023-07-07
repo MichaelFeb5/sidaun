@@ -2,11 +2,15 @@
 
 namespace App\Controllers;
 
+<<<<<<< HEAD
 use App\Models\DataTanaman;
+=======
+>>>>>>> bc0fd93f51a0f22bbd792ed27cd623844ec127fe
 use App\Controllers\BaseController;
 
 class Viewer extends BaseController
 {
+<<<<<<< HEAD
 
     protected $tanamanModel;
     protected $jenisModel;
@@ -43,3 +47,18 @@ class Viewer extends BaseController
 }
 
 }
+=======
+    public function index()
+    {
+        // $DataTanaman = new \App\Models\DataTanaman();
+        // $response = $DataTanaman->getDetailWithJenis($id);
+
+        $data = [
+            'title' => 'viewer',
+            // 'dataTanaman' => json_encode($response),
+        ];
+
+        return view('Viewer/index', $data );
+    }
+}
+>>>>>>> bc0fd93f51a0f22bbd792ed27cd623844ec127fe
