@@ -38,6 +38,15 @@ class DataTanaman extends Model
         return $query->getResult();
     }
 
+    public function getById($id)
+    {
+        $builder = $this->db->table('data_tanaman');
+        $builder->join('data_jenis', 'data_jenis.id_jenis = data_tanaman.id_jenis');
+        $builder->where('data_tanaman.id_tanaman', $id); // Menambahkan WHERE berdasarkan id
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
     public function getDetailWithJenis($id)
     {
         $this->select('data_tanaman.*, data_jenis.*');
@@ -45,7 +54,7 @@ class DataTanaman extends Model
         $this->where('data_tanaman.id_tanaman', $id);
         $query = $this->get();
 
-        return $query->getRow();
+        return $query->getResult();
     }
 
     public function getAllWithJenis()
