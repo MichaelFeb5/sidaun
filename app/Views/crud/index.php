@@ -29,8 +29,6 @@
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <?php $i = 1; ?>
-                        <?php foreach($pohon as $p) : ?>
                             <th>Nomor</th>
                             <th>Nama Pohon</th>
                             <th>Jenis Pohon</th>
@@ -40,14 +38,16 @@
                     </thead>
                     <tbody>
                         <tr>
+                        <?php $i = 1; ?>
+                        <?php foreach($pohon as $p) : ?>
                             <td><?= $i ?></td>
-                            <td><?= $p->nama_pohon ?></td>
+                            <td><?= $p->nama_tanaman ?></td>
                             <td><?= $p->nama_jenis ?></td>
-                            <td><?= $p->musim_pohon ?></td>
+                            <td><?= $p->musim_tanaman ?></td>
                             <td>
                                 <button class="btn btn-success"><i class="bi bi-pencil-square"></i></button>
                                 <button class="btn btn-warning"><i class="bi bi-eye"></i></button>
-                                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                <a href="/viewer/details/<?= $p -> id_tanaman ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     </tbody>
