@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Files\File;
+use CodeIgniter\Files\FileHelper;
 use App\Models\DataTanaman;
 use CodeIgniter\Validation\Rules;
 use CodeIgniter\Validation\Exceptions\ValidationException;
@@ -24,6 +26,18 @@ class Tanaman extends BaseController
         return view('Tanaman/index', $data);
     }
 
+    public function grid()
+    {
+        $DataTanaman = new \App\Models\DataTanaman();
+        $data = $DataTanaman->getAllWithJenis();
+
+        $response = [
+            'data' => $data,
+        ];
+
+        return $this->response->setJSON($response);
+    }
+
     public function detail($id)
     {
         $DataTanaman = new \App\Models\DataTanaman();
@@ -35,6 +49,23 @@ class Tanaman extends BaseController
         ];
 
         return view('Tanaman/detail', $data);
+    }
+
+    public function detailEdit($id)
+    {
+        $DataTanaman = new \App\Models\DataTanaman();
+        $response = $DataTanaman->getDetailWithJenis($id);
+
+        $DataJenis = new \App\Models\DataJenis();
+        $jenis = $DataJenis->findAll();
+
+        $data = [
+            'title' => 'Tanaman',
+            'dataJenis' => json_encode($jenis),
+            'model' => json_decode(json_encode($response), true)
+        ];
+
+        return view('Tanaman/formEdit', $data);
     }
 
     public function tambah()
@@ -54,7 +85,7 @@ class Tanaman extends BaseController
         $DataTanaman = new \App\Models\DataTanaman();
         $isNew = $this->request->getPost('isNew');
         $data = ($this->request->getPost('model') ? $this->request->getPost('model') : []);
-        
+
         if (!empty($data)) {
             $data = json_decode($data);
             $data = json_decode(json_encode($data), true);
@@ -68,16 +99,30 @@ class Tanaman extends BaseController
             // Tentukan direktori penyimpanan gambar
             $directory = 'assets/images/tanaman';
 
-            // Generate nama unik untuk gambar
-            $namaFile = $gambar->getRandomName();
+            if ($isNew == 1) {
+                // Generate nama unik untuk gambar
+                $namaFile = $gambar->getRandomName();
+                // Pindahkan gambar ke direktori tujuan
+                $gambar->move($directory, $namaFile);
+                // Simpan nama file gambar dalam $data
+                $data['gambar'] = $namaFile;
+            } else {
+                if ($gambar->getClientName() != "blob") {
+                    // Hapus Gambar Terdahulu
+                    $namaGambarTerdahulu = $data['gambar']; // Ganti dengan nama file gambar yang ingin dihapus
+                    $lokasiGambarTedahulu = 'assets/images/tanaman/' . $namaGambarTerdahulu;
 
-            // Pindahkan gambar ke direktori tujuan
-            $gambar->move($directory, $namaFile);
+                    if (file_exists($lokasiGambarTedahulu)) {
+                        unlink($lokasiGambarTedahulu);
+                    }
 
-            // Simpan nama file gambar dalam $data
-            $data['gambar'] = $namaFile;
+                    // Set Gambar Terbaru
+                    $namaFile = $gambar->getRandomName();
+                    $gambar->move($directory, $namaFile);
+                    $data['gambar'] = $namaFile;
+                }
+            }
         } else {
-            // Jika tidak ada gambar yang diunggah, set $data['gambar'] menjadi null atau kosong
             $data['gambar'] = null;
         }
 
@@ -88,6 +133,21 @@ class Tanaman extends BaseController
             $res = $DataTanaman->update($data['id_tanaman'], $data);
             return $this->response->setJSON($res);
         }
+    }
+
+    public function hapus($id)
+    {
+        $DataTanaman = new \App\Models\DataTanaman();
+        $data = $DataTanaman->find($id);
+        $pathGambar = "assets/images/tanaman/" . $data['gambar'];
+
+        if (file_exists($pathGambar)) {
+            unlink($pathGambar);
+        }
+        
+        $response = $DataTanaman->delete($id);
+
+        return $this->response->setJSON($response);
     }
 
     public function getDataJenis()
