@@ -65,6 +65,9 @@ class Tanaman extends BaseController
             'model' => json_decode(json_encode($response), true)
         ];
 
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>'; exit;
         return view('Tanaman/formEdit', $data);
     }
 
