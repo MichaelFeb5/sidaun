@@ -28,7 +28,8 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Minimal jQuery Datatable</h5>
+                <h5 class="card-title">Data Jenis</h5>
+                <p>Menampilkan Data Jenis Tanaman</p>
             </div>
             <div class="card-body">
                 <div class="table-responsive datatable-minimal">
@@ -52,7 +53,7 @@
 <?= $this->section('javascript') ?>
 <script>
     function onNew() {
-        window.location.href = '<?= base_url()?>jenis/tambah'
+        window.location.href = '<?= base_url() ?>jenis/tambah'
     }
 
     function onEdit(id) {
@@ -63,7 +64,7 @@
         Swal.fire({
             title: 'Anda Yakin ?',
             text: "Data yang terhapus tidak dapat dikembalikan!",
-            type: 'warning',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
@@ -74,8 +75,9 @@
                 $.post(`<?= base_url() ?>Jenis/hapus/` + id, function(res) {
                     console.log('onDelete Res', res);
                     if (res == true) {
-                        Swal.fire('Terhapus!', 'Data berhasil dihapus !.', 'success')
-                        window.location.href = "<?= base_url() ?>Jenis"
+                        Swal.fire('Terhapus!', 'Data berhasil dihapus !.', 'success').then((result) => {
+                            window.location.href = "<?= base_url() ?>Jenis"
+                        })
                     } else {
                         Swal.fire('Info!', res.message, 'warning')
                     }
