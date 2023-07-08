@@ -15,7 +15,7 @@ class TbTanaman extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'id_jenis' => [
+            'id_genus' => [
                 'type'           => 'INT',
                 'constraint'     => 50,
                 'unsigned'       => true,
@@ -54,7 +54,7 @@ class TbTanaman extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id_tanaman');
-        $this->forge->addForeignKey('id_jenis', 'data_jenis', 'id_jenis');
+        $this->forge->addForeignKey('id_genus', 'data_jenis', 'id_genus');
         $this->forge->createTable('data_tanaman');
 
     }
