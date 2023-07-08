@@ -161,7 +161,7 @@
             <!-------------------- ------ Right Box ---------------------------->
             <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
                 <div class="featured-image mb-3">
-                    <img src="<?= base_url()?>assets/images/casual-life-3d-monstera-plant-with-holes-in-its-leaves.png" class="img-fluid" style="width: 180px;">
+                    <img src="<?= base_url()?>assets/images/login/casual-life-3d-monstera-plant-with-holes-in-its-leaves.png" class="img-fluid" style="width: 180px;">
                 </div>
             </div>
         </div>
