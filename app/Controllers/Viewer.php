@@ -15,17 +15,6 @@ class Viewer extends BaseController
         $this->tanamanModel = new DataTanaman();
     }
 
-    public function index()
-    {
-        
-        $pohon = $this->tanamanModel->getAll();
-        $data = [
-            'title' => 'Data Table',
-            'pohon' => $pohon
-        ];
-
-        return view('crud/index', $data);
-    }
 
     public function details($id = null)
 {

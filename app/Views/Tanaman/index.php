@@ -69,7 +69,7 @@
     }
 
     function onDetail(id) {
-        window.location.href = '<?= base_url(); ?>viewers/details/' + id
+        window.location.href = '<?= base_url(); ?>viewer/details/' + id
     }
 
     function onDelete(id) {
