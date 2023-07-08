@@ -79,13 +79,14 @@
                 </div>
                 <div class="card-body">
                     <?php
-                    $decoded = json_decode($pohon[0]->deskripsi_tanaman);
+                    // $decoded = json_decode($pohon[0]->deskripsi_tanaman);
 
-                    foreach ($decoded->ops as $op) {
-                        if (isset($op->insert)) {
-                            echo $op->insert;
-                        }
-                    }
+                    // foreach ($decoded->ops as $op) {
+                    //     if (isset($op->insert)) {
+                    //         echo $op->insert;
+                    //     }
+                    // }
+                    $pohon[0] -> deskripsi_tanaman
                     ?>
                 </div>
             </div>
