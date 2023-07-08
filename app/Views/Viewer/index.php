@@ -6,7 +6,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Nama Tanaman: <?= $pohon[0]->nama_tanaman ?></h3>
+                    <h3>Nama tanaman: <?= $pohon[0]->nama_tanaman ?></h3>
                     <h4>Umur: <?= $pohon[0]->umur_tanaman ?> tahun</h4>
                     <p class="text-subtitle text-muted"> Tinggi tanaman: <?= $pohon[0]->tinggi_tanaman ?> meter</p>
                 </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Gambar Tanaman</h4>
+                    <h4 class="card-title">Gambar tanaman</h4>
                 </div>
                 <div class="card-body">
                     <img width="200" height="200" src="<?= base_url('assets/images/tanaman/' . $pohon[0]->gambar) ?>" alt="bla">
@@ -57,7 +57,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Nama Family: <?= $pohon[0]->nama_family ?></h4>
+                    <h4 class="card-title">Nama family: <?= $pohon[0]->nama_family ?></h4>
                 </div>
                 <div class="card-body">
                     <?= $pohon[0]->deskripsi_family ?> : Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quas omnis laudantium tempore
@@ -67,7 +67,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Nama Genus: <?= $pohon[0]->nama_genus ?></h4>
+                    <h4 class="card-title">Nama genus: <?= $pohon[0]->nama_genus ?></h4>
                 </div>
                 <div class="card-body">
                     <?= $pohon[0]->deskripsi_genus ?> 
@@ -75,18 +75,18 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Deskripsi Tanaman </h4>
+                    <h4 class="card-title">Deskripsi tanaman </h4>
                 </div>
                 <div class="card-body">
                     <?php
-                    // $decoded = json_decode($pohon[0]->deskripsi_tanaman);
+                    $decoded = json_decode($pohon[0]->deskripsi_tanaman);
 
-                    // foreach ($decoded->ops as $op) {
-                    //     if (isset($op->insert)) {
-                    //         echo $op->insert;
-                    //     }
-                    // }
-                    $pohon[0] -> deskripsi_tanaman
+                    foreach ($decoded->ops as $op) {
+                        if (isset($op->insert)) {
+                            echo $op->insert;
+                        }
+                    }
+                    $pohon[0]-> deskripsi_tanaman
                     ?>
                 </div>
             </div>
