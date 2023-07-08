@@ -81,6 +81,11 @@ class Login extends BaseController
         }
 
         // Insert data jika validasi tidak terpenuhi
+        $options = [
+            'cost' => 10,
+        ];
+
+        $data['password'] = password_hash($data['password'],  PASSWORD_DEFAULT, $options);
         $res = $tb_akun->insert($data);
         return $this->response->setJSON($res);
     }
