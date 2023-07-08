@@ -36,6 +36,7 @@ $routes->get('/Home', 'Home::index');
 $routes->get('/Login', 'Login::index');
 $routes->get('/Jenis', 'Jenis::index');
 $routes->get('/Tanaman', 'Tanaman::index');
+$routes->get('/Dashboard', 'Dashboard::index');
 
 // routes untuk halaman datatables
 $routes->get('/Datatables', 'Datatables::index');
@@ -45,6 +46,10 @@ $routes->get('/Datatables', 'Datatables::index');
 
 // routes untuk halaman pohon udah include dengan get/add/push/delete (api)
 $routes->resource('/pohon', ['controller' => 'pohonController']);
+
+
+$routes->get('/Viewer', 'Viewer::index');
+$routes->get('/Viewer/details', 'Viewer::details/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

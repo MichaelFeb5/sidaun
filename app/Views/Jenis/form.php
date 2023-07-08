@@ -40,14 +40,28 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="nama_jenis">Jenis</label>
-                                                <input type="text" id="nama_jenis" class="form-control" name="nama_jenis" placeholder="Jenis" />
+                                                <label for="nama_genus">Genus</label>
+                                                <input type="text" id="nama_genus" class="form-control" name="nama_genus" placeholder="Genus" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="deskripsi_genus">Deskripsi Genus</label>
+                                                <div id="snow" name="deskripsi_genus">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="nama_family">Family</label>
                                                 <input type="text" id="nama_family" class="form-control" name="nama_family" placeholder="Family" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="deskripsi_familiy">Deskripsi familiy</label>
+                                                <div id="snow2" name="deskripsi_familiy">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex mt-3">
@@ -68,20 +82,33 @@
         </div>
     </section>
 </div>
-
+<?= $this->endSection('content') ?>
+<?= $this->section('javascript') ?>
 <script>
     var form = {};
     var model = {};
 
+    var snow2 = new Quill('#snow2', {
+        theme: 'snow'
+    });
+
     function onSave() {
-        const nama_jenis = $("#nama_jenis").val();
+        const nama_genus = $("#nama_genus").val();
         const nama_family = $("#nama_family").val();
 
-        model.nama_jenis = nama_jenis;
+        var textGenusDeskripsi = snow.getContents();
+        var textFamilyDeskripsi = snow2.getContents();
+        // Mengkonversi konten menjadi format JSON
+        let deskripsi_genus = JSON.stringify(textGenusDeskripsi);
+        let deskripsi_family = JSON.stringify(textFamilyDeskripsi);
+
+        model.nama_genus = nama_genus;
         model.nama_family = nama_family;
+        model.deskripsi_genus = deskripsi_genus;
+        model.deskripsi_family = deskripsi_family;
         form.isNew = 1;
         form.model = model;
-        
+
         $.post("<?= base_url(); ?>Jenis/simpan", form, function(res) {
             if (typeof res.validasi == 'undefined') {
                 Swal.fire({
@@ -101,23 +128,5 @@
             // app.form.isSaving = false;
         })
     }
-
-    // function check() {
-    //     const username = $("#username").val();
-    //     const password = $("#password").val();
-
-    //     var model = {};
-    //     model.username = username;
-    //     model.password = password;
-    //     form.model = model;
-
-    //     $.post("<?= current_url(); ?>/Login/registrasi", "", function(res) {}).fail(function(xhr) {
-    //         console.log(xhr);
-    //         Swal.fire('Error', "Server gagal merespon", 'error');
-    //     }).always(function() {
-    //         // app.form.isSaving = false;
-    //     })
-    // }
 </script>
-
-<?= $this->endSection('content') ?>
+<?= $this->endSection('javascript') ?>

@@ -34,60 +34,171 @@
                         <h4 class="card-title">Tambah Tanaman</h4>
                     </div>
                     <div class="card-content">
-                        <div class="card-body">
-                            <form class="form form-vertical">
+                        <div class="card-body pt-2">
+                            <div class="form form-vertical">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Nama Tanaman</label>
-                                                <input type="text" id="first-name-vertical" class="form-control" name="fname" placeholder="Nama Tanaman" />
+                                                <label for="nama_tanaman">Nama</label>
+                                                <input type="text" id="nama_tanaman" class="form-control" name="nama_tanaman" placeholder="Nama" />
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="email-id-vertical">Email</label>
-                                                <input type="email" id="email-id-vertical" class="form-control" name="email-id" placeholder="Email" />
+                                                <label for="id_genus">Jenis</label>
+                                                <select class="js-example-basic-single" style="width:100%" name="id_genus" id="id_genus">
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="contact-info-vertical">Mobile</label>
-                                                <input type="number" id="contact-info-vertical" class="form-control" name="contact" placeholder="Mobile" />
+                                                <label for="umur_tanaman">Umur</label>
+                                                <input type="number" id="umur_tanaman" class="form-control" name="umur_tanaman" placeholder="Umur" />
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="password-vertical">Password</label>
-                                                <input type="password" id="password-vertical" class="form-control" name="contact" placeholder="Password" />
+                                                <label for="tinggi_tanaman">Tinggi</label>
+                                                <input type="number" id="tinggi_tanaman" class="form-control" name="tinggi_tanaman" placeholder="Tinggi" />
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="form-check">
-                                                <div class="checkbox">
-                                                    <input type="checkbox" id="checkbox3" class="form-check-input" checked />
-                                                    <label for="checkbox3">Remember Me</label>
+                                            <div class="form-group">
+                                                <label for="desktipsi_tanaman">Deskripsi</label>
+                                                <div id="snow" name="deskripsi_tanaman">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="musim_tanaman">Musim</label>
+                                                <input type="text" id="musim_tanaman" class="form-control" name="musim_tanaman" placeholder="Musim" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="gambar_tanaman">Gambar</label>
+                                                <input type="file" class="image-preview-filepond" data-filepond>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex mt-3">
+                                            <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
                                                 Submit
                                             </button>
-                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">
-                                                Reset
+                                            <button class="btn btn-danger me-1 mb-1" onclick="onBatal()">
+                                                Batalkan
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 </div>
 
 <?= $this->endSection('content') ?>
+
+<?= $this->section('javascript') ?>
+<script>
+    var form = {};
+    var model = {};
+
+    const inputElement = document.querySelector('.image-preview-filepond');
+    const pond = FilePond.create(inputElement, {
+        allowMultiple: false,
+        acceptedFileTypes: ['image/*'],
+    });
+
+    function onSave() {
+        let nama_tanaman = $("#nama_tanaman").val();
+        let id_genus = $("#id_genus").val();
+        let umur_tanaman = $("#umur_tanaman").val();
+        let tinggi_tanaman = $("#tinggi_tanaman").val();
+        let musim_tanaman = $("#musim_tanaman").val();
+
+        // Mendapatkan konten dari Quill Editor
+        var textDeskripsi = snow.getContents();
+        // Mengkonversi konten menjadi format JSON
+        let deskripsi_tanaman = JSON.stringify(textDeskripsi);
+        const file = pond.getFile();
+
+        if (nama_tanaman == "" || id_genus == "" || umur_tanaman == "" || tinggi_tanaman == "" ||
+            umur_tanaman == "" || musim_tanaman == "" || textDeskripsi == "" || file == null) {
+            Swal.fire('Ups !', "Isi Seluruh Data", 'warning');
+        } else {
+            // Masukan Ke dalam model
+            model.nama_tanaman = $("#nama_tanaman").val();
+            model.id_genus = $("#id_genus").val();
+            model.umur_tanaman = $("#umur_tanaman").val();
+            model.tinggi_tanaman = $("#tinggi_tanaman").val();
+            model.musim_tanaman = $("#musim_tanaman").val();
+            model.deskripsi_tanaman = JSON.stringify(textDeskripsi);
+
+            var formData = new FormData();
+            formData.append("file", file.file);
+            formData.append("isNew", 1);
+            formData.append("model", JSON.stringify(model));
+
+            $.ajax({
+                url: "<?= base_url(); ?>tanaman/simpan",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    if (typeof res.validasi == 'undefined') {
+                        if (typeof res.validasi == 'undefined') {
+                            Swal.fire({
+                                title: 'Berhasil',
+                                text: "Data Berhasil Ditambahkan",
+                                icon: 'success',
+                            }).then((result) => {
+                                window.location.replace("<?= base_url(); ?>Tanaman");
+                            })
+                        } else {
+                            Swal.fire('Ups', "Data Harus Lengkap", 'error');
+                        }
+                    } else {
+                        Swal.fire('Ups', "Data Harus Lengkap", 'error');
+                    }
+                },
+                error: function(xhr) {
+                    console.log(xhr);
+                    Swal.fire('Error', "Server gagal merespon", 'error');
+                },
+                complete: function() {
+                    // app.form.isSaving = false;
+                }
+            });
+        }
+    }
+
+    function onBatal() {
+        window.location.replace("<?= base_url(); ?>Tanaman");
+    }
+
+    $(document).ready(function() {
+        // Get data Jenis
+        let dataJenis = [];
+        dataJenis = <?= $dataJenis ?>;
+        dataJenis.forEach(function(element, index) {
+            dataJenis[index] = {
+                id: element.id_genus,
+                text: element.nama_genus
+            }
+        });
+
+        // Set Editor
+        snow.insertText(0, 'Hello', 'bold', true);
+
+        $('.js-example-basic-single').select2({
+            data: dataJenis
+        });
+    });
+</script>
+<?= $this->endSection('jacascript') ?>
