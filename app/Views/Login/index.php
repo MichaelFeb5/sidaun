@@ -190,7 +190,9 @@
             Swal.fire('Ups !', 'Isi Username dan Password', 'warning')
         } else {
             $.post("<?= base_url(); ?>/Login/check", form, function(res) {
-                if (res.code == 200) {} else {
+                if (res.code == 200) {
+                    window.location.replace("<?= base_url("")?>Dashboard")
+                } else {
                     Swal.fire({
                         title: 'Ups',
                         text: res.codeText,
