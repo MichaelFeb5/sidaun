@@ -42,7 +42,7 @@
                         <?php foreach($pohon as $p) : ?>
                             <td><?= $i ?></td>
                             <td><?= $p->nama_tanaman ?></td>
-                            <td><?= $p->nama_jenis ?></td>
+                            <td><?= $p->nama_genus ?></td>
                             <td><?= $p->musim_tanaman ?></td>
                             <td>
                                 <button class="btn btn-success"><i class="bi bi-pencil-square"></i></button>

@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>Nama Tanaman : <?= $pohon[0]->nama_tanaman ?></h3>
-                    <h4>Umur : <?= $pohon[0]->umur_tanaman ?></h4>
-                    <p class="text-subtitle text-muted"> Tinggi tanaman : <?= $pohon[0]->tinggi_tanaman ?></p>
+                    <h4>Umur : <?= $pohon[0]->umur_tanaman ?> tahun</h4>
+                    <p class="text-subtitle text-muted"> Tinggi tanaman : <?= $pohon[0]->tinggi_tanaman ?> meter</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -81,13 +81,14 @@
                 </div>
                 <div class="card-body">
                     <?php
-                    $decoded = json_decode($pohon[0]->deskripsi_tanaman);
+                    // $decoded = json_decode($pohon[0]->deskripsi_tanaman);
 
-                    foreach ($decoded->ops as $op) {
-                        if (isset($op->insert)) {
-                            echo $op->insert;
-                        }
-                    }
+                    // foreach ($decoded->ops as $op) {
+                    //     if (isset($op->insert)) {
+                    //         echo $op->insert;
+                    //     }
+                    // }
+                    $pohon[0] -> deskripsi_tanaman
                     ?>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quas omnis laudantium tempore
                     exercitationem, expedita aspernatur sed officia asperiores unde tempora maxime odio reprehenderit
