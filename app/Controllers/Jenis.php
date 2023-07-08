@@ -18,6 +18,10 @@ class Jenis extends BaseController
 
     public function index()
     {
+        if (!$this->request->getCookie('akun')) {
+            return redirect()->to(base_url()); // Redirect ke halaman login
+        }
+
         $data['title'] = 'Jenis';
         return view('Jenis/index', $data);
     }
@@ -36,12 +40,20 @@ class Jenis extends BaseController
 
     public function tambah()
     {
+        if (!$this->request->getCookie('akun')) {
+            return redirect()->to(base_url()); // Redirect ke halaman login
+        }
+
         $data['title'] = 'Jenis';
         return view('Jenis/form', $data);
     }
 
     public function detail($id)
     {
+        if (!$this->request->getCookie('akun')) {
+            return redirect()->to(base_url()); // Redirect ke halaman login
+        }
+
         $DataJenis = new \App\Models\DataJenis();
         $response = $DataJenis->find($id);
         $data = [

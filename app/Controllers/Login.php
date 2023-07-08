@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+
+use CodeIgniter\Controller;
 use App\Controllers\BaseController;
 use CodeIgniter\Validation\Rules;
 use CodeIgniter\Validation\Exceptions\ValidationException;
@@ -40,6 +42,13 @@ class Login extends BaseController
             if (password_verify($data['password'], $akun->password)) {
                 $res['code'] = 200;
                 $res['akun'] = $akun;
+
+                helper('cookie');
+                $expire = 3600; // Waktu kadaluarsa cookie dalam detik (misalnya 1 jam)
+
+                $expire = time() + 3600; // Waktu kadaluarsa cookie dalam detik (misalnya 1 jam)
+                $cookieValue = json_encode($akun);
+                setcookie('akun', $cookieValue, $expire, '/');
             } else {
                 $res['code'] = 201;
                 $res['codeText'] = "Password Salah";
