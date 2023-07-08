@@ -12,6 +12,10 @@ class Dashboard extends BaseController
     {
         helper('cookie');
 
+        if (!$this->request->getCookie('akun')) {
+            return redirect()->to(base_url()); // Redirect ke halaman login
+        }
+
         $DataTanaman = new \App\Models\DataTanaman();
         $DataJenis = new \App\Models\DataJenis();
 

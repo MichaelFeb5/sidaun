@@ -20,6 +20,10 @@ class Tanaman extends BaseController
 
     public function index()
     {
+        if (!$this->request->getCookie('akun')) {
+            return redirect()->to(base_url()); // Redirect ke halaman login
+        }
+
         $data = [
             'title' => 'Tanaman',
         ];
@@ -38,21 +42,12 @@ class Tanaman extends BaseController
         return $this->response->setJSON($response);
     }
 
-    public function detail($id)
-    {
-        $DataTanaman = new \App\Models\DataTanaman();
-        $response = $DataTanaman->getDetailWithJenis($id);
-
-        $data = [
-            'title' => 'Tanaman',
-            'dataTanaman' => json_encode($response),
-        ];
-
-        return view('Tanaman/detail', $data);
-    }
-
     public function detailEdit($id)
     {
+        if (!$this->request->getCookie('akun')) {
+            return redirect()->to(base_url()); // Redirect ke halaman login
+        }
+
         $DataTanaman = new \App\Models\DataTanaman();
         $response = $DataTanaman->getDetailWithJenis($id);
 
@@ -69,6 +64,10 @@ class Tanaman extends BaseController
 
     public function tambah()
     {
+        if (!$this->request->getCookie('akun')) {
+            return redirect()->to(base_url()); // Redirect ke halaman login
+        }
+
         $DataJenis = new \App\Models\DataJenis();
         $jenis = $DataJenis->findAll();
 
