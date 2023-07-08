@@ -20,13 +20,18 @@ class Login extends BaseController
 
     public function index()
     {
-        return view('Login/index');
+        $data = [
+            'title' => "Login"
+        ];
+        return view('Login/index' , $data);
     }
 
     public function registrasi()
     {
-        $data['tittle'] = 'Registrasi';
-        return view('Login/registrasi.php');
+        $data = [
+            'title' => "Registrasi"
+        ];
+        return view('Login/registrasi.php', $data);
     }
 
     public function check()
