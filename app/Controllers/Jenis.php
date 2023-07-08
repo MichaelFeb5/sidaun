@@ -48,6 +48,7 @@ class Jenis extends BaseController
             'title' => 'Jenis',
             'model' => $response,
         ];
+
         return view('Jenis/formEdit', $data);
     }
 
@@ -94,7 +95,7 @@ class Jenis extends BaseController
     {
         $DataJenis = new \App\Models\DataJenis();
         $response = $DataJenis->delete($id);
-    
+
         return $this->response->setJSON($response);
     }
 }

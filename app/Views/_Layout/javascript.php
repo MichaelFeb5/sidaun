@@ -6,6 +6,7 @@
 <script src="http://sidaun.test/assets/extensions/select2/js/select2.min.js"></script>
 <script src="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.js"></script>
 
+
 <!-- Quill Extension -->
 <script src="http://sidaun.test/assets/extensions/quill/quill.min.js"></script>
 <script src="http://sidaun.test/assets/static/js/pages/quill.js"></script>

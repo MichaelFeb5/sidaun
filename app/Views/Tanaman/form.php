@@ -46,8 +46,8 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="id_jenis">Jenis</label>
-                                                <select class="js-example-basic-single" style="width:100%" name="id_jenis" id="id_jenis">
+                                                <label for="id_genus">Jenis</label>
+                                                <select class="js-example-basic-single" style="width:100%" name="id_genus" id="id_genus">
                                                 </select>
                                             </div>
                                         </div>
@@ -69,26 +69,26 @@
                                                 <div id="snow" name="deskripsi_tanaman">
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="musim_tanaman">Musim</label>
-                                                    <input type="text" id="musim_tanaman" class="form-control" name="musim_tanaman" placeholder="Musim" />
-                                                </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="musim_tanaman">Musim</label>
+                                                <input type="text" id="musim_tanaman" class="form-control" name="musim_tanaman" placeholder="Musim" />
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="gambar_tanaman">Gambar</label>
-                                                    <input type="file" class="image-preview-filepond" data-filepond>
-                                                </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="gambar_tanaman">Gambar</label>
+                                                <input type="file" class="image-preview-filepond" data-filepond>
                                             </div>
-                                            <div class="col-12 d-flex mt-3">
-                                                <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
-                                                    Submit
-                                                </button>
-                                                <button class="btn btn-danger me-1 mb-1" onclick="onBatal()">
-                                                    Batalkan
-                                                </button>
-                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex mt-3">
+                                            <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
+                                                Submit
+                                            </button>
+                                            <button class="btn btn-danger me-1 mb-1" onclick="onBatal()">
+                                                Batalkan
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -97,6 +97,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>
 
@@ -115,7 +116,7 @@
 
     function onSave() {
         let nama_tanaman = $("#nama_tanaman").val();
-        let id_jenis = $("#id_jenis").val();
+        let id_genus = $("#id_genus").val();
         let umur_tanaman = $("#umur_tanaman").val();
         let tinggi_tanaman = $("#tinggi_tanaman").val();
         let musim_tanaman = $("#musim_tanaman").val();
@@ -126,13 +127,13 @@
         let deskripsi_tanaman = JSON.stringify(textDeskripsi);
         const file = pond.getFile();
 
-        if (nama_tanaman == "" || id_jenis == "" || umur_tanaman == "" || tinggi_tanaman == "" ||
+        if (nama_tanaman == "" || id_genus == "" || umur_tanaman == "" || tinggi_tanaman == "" ||
             umur_tanaman == "" || musim_tanaman == "" || textDeskripsi == "" || file == null) {
             Swal.fire('Ups !', "Isi Seluruh Data", 'warning');
         } else {
             // Masukan Ke dalam model
             model.nama_tanaman = $("#nama_tanaman").val();
-            model.id_jenis = $("#id_jenis").val();
+            model.id_genus = $("#id_genus").val();
             model.umur_tanaman = $("#umur_tanaman").val();
             model.tinggi_tanaman = $("#tinggi_tanaman").val();
             model.musim_tanaman = $("#musim_tanaman").val();
@@ -187,8 +188,8 @@
         dataJenis = <?= $dataJenis ?>;
         dataJenis.forEach(function(element, index) {
             dataJenis[index] = {
-                id: element.id_jenis,
-                text: element.nama_jenis
+                id: element.id_genus,
+                text: element.nama_genus
             }
         });
 
