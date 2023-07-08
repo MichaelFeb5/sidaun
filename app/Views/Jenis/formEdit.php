@@ -40,14 +40,28 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="nama_jenis">Jenis</label>
-                                                <input type="text" id="nama_jenis" class="form-control" name="nama_jenis" placeholder="Jenis" value="<?= $model['nama_jenis'] ?>" />
+                                                <label for="nama_genus">Jenis</label>
+                                                <input type="text" id="nama_genus" class="form-control" name="nama_genus" placeholder="Jenis" value="<?= $model['nama_genus'] ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="deskripsi_genus">Deskripsi Genus</label>
+                                                <div id="snow" name="deskripsi_genus">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="nama_family">Family</label>
                                                 <input type="text" id="nama_family" class="form-control" name="nama_family" placeholder="Family" value="<?= $model['nama_family'] ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="deskripsi_familiy">Deskripsi familiy</label>
+                                                <div id="snow2" name="deskripsi_familiy">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex mt-3">
@@ -77,25 +91,37 @@
     var model = {};
     model.id_jenis = <?= $model['id_jenis'] ?>
 
-    function test() {
-        console.log("test");
-    }
+    // Inisiate quill editor
+    var snow2 = new Quill('#snow2', {
+        theme: 'snow'
+    });
+
+    let deskripsiFamily = {};
+    deskripsiFamily = JSON.parse(<?php echo json_encode($model['deskripsi_familiy']); ?>);
+    snow2.setContents(deskripsiFamily)
 
     function onSave() {
-        // Set Data
-        model.nama_jenis = $("#nama_jenis").val();
-        model.nama_family = $("#nama_family").val();
+        const nama_genus = $("#nama_genus").val();
+        const nama_family = $("#nama_family").val();
 
-        form.isNew = 0; // 0 untuk edit 1 untuk baru
-        form.model = model; // set model ke form
+        var textGenusDeskripsi = snow.getContents();
+        var textFamilyDeskripsi = snow2.getContents();
+        // Mengkonversi konten menjadi format JSON
+        let deskripsi_genus = JSON.stringify(textGenusDeskripsi);
+        let deskripsi_family = JSON.stringify(textFamilyDeskripsi);
 
-        app.form = form // set semua ke app
+        model.nama_genus = nama_genus;
+        model.nama_family = nama_family;
+        model.deskripsi_genus = deskripsi_genus;
+        model.deskripsi_family = deskripsi_family;
+        form.isNew = 0;
+        form.model = model;
 
         $.post("<?= base_url(); ?>Jenis/simpan", form, function(res) {
             if (typeof res.validasi == 'undefined') {
                 Swal.fire({
                     title: 'Berhasil',
-                    text: "Data Berhasil Diubah",
+                    text: "Data Berhasil Ditambahkan",
                     icon: 'success',
                 }).then((result) => {
                     window.location.replace("<?= base_url(); ?>Jenis");
@@ -110,5 +136,11 @@
             // app.form.isSaving = false;
         })
     }
+
+    $(document).ready(function() {
+        let deskripsiGenus = {};
+        deskripsiGenus = JSON.parse(<?php echo json_encode($model['deskripsi_genus']); ?>);
+        snow.setContents(deskripsiGenus)
+    });
 </script>
 <?= $this->endSection('javascript') ?>

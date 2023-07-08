@@ -69,26 +69,26 @@
                                                 <div id="snow" name="deskripsi_tanaman">
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="musim_tanaman">Musim</label>
-                                                    <input type="text" id="musim_tanaman" class="form-control" name="musim_tanaman" placeholder="Musim" />
-                                                </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="musim_tanaman">Musim</label>
+                                                <input type="text" id="musim_tanaman" class="form-control" name="musim_tanaman" placeholder="Musim" />
                                             </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="gambar_tanaman">Gambar</label>
-                                                    <input type="file" class="image-preview-filepond" data-filepond>
-                                                </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="gambar_tanaman">Gambar</label>
+                                                <input type="file" class="image-preview-filepond" data-filepond>
                                             </div>
-                                            <div class="col-12 d-flex mt-3">
-                                                <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
-                                                    Submit
-                                                </button>
-                                                <button class="btn btn-danger me-1 mb-1" onclick="onBatal()">
-                                                    Batalkan
-                                                </button>
-                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex mt-3">
+                                            <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
+                                                Submit
+                                            </button>
+                                            <button class="btn btn-danger me-1 mb-1" onclick="onBatal()">
+                                                Batalkan
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -97,6 +97,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </div>
 
