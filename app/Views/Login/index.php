@@ -137,7 +137,7 @@
         } else {
             $.post("<?= base_url(); ?>/Login/check", form, function(res) {
                 if (res.code == 200) {
-                    
+                    window.location.replace("<?= base_url()?>/Dashboard")
                 } else {
                     Swal.fire({
                         title: 'Ups',
