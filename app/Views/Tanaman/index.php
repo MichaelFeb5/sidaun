@@ -68,6 +68,10 @@
         window.location.href = '<?= base_url(); ?>tanaman/detailEdit/' + id
     }
 
+    function onDetail(id) {
+        window.location.href = '<?= base_url(); ?>viewers/details/' + id
+    }
+
     function onDelete(id) {
         Swal.fire({
             title: 'Anda Yakin ?',
