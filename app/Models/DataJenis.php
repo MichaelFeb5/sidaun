@@ -7,11 +7,13 @@ use CodeIgniter\Model;
 class DataJenis extends Model
 {
     protected $table            = 'data_jenis';
-    protected $primaryKey       = 'id_jenis';
+    protected $primaryKey       = 'id_genus';
     protected $useAutoIncrement = true;
     protected $allowedFields    = [
-        'nama_jenis',
-        'nama_family'
+        'nama_genus',
+        'deskripsi_genus',
+        'nama_family',
+        'deskripsi_family'
     ];
 
     // Dates
@@ -19,4 +21,10 @@ class DataJenis extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    public function getTotalRows()
+    {
+        return $this->countAllResults();
+    }
 }
+
