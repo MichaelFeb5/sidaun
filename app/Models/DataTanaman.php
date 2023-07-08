@@ -54,7 +54,7 @@ class DataTanaman extends Model
         $this->where('data_tanaman.id_tanaman', $id);
         $query = $this->get();
 
-        return $query->getResult();
+        return $query->getRow();
     }
 
     public function getAllWithJenis()
@@ -65,4 +65,10 @@ class DataTanaman extends Model
 
         return $query->getResult();
     }
+
+    public function getTotalRows()
+    {
+        return $this->countAllResults();
+    }
+
 }

@@ -46,8 +46,8 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="id_jenis">Jenis</label>
-                                                <select class="js-example-basic-single" style="width:100%" name="id_jenis" id="id_jenis">
+                                                <label for="id_genus">Jenis</label>
+                                                <select class="js-example-basic-single" style="width:100%" name="id_genus" id="id_genus">
                                                 </select>
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@
 
     function onSave() {
         let nama_tanaman = $("#nama_tanaman").val();
-        let id_jenis = $("#id_jenis").val();
+        let id_genus = $("#id_genus").val();
         let umur_tanaman = $("#umur_tanaman").val();
         let tinggi_tanaman = $("#tinggi_tanaman").val();
         let musim_tanaman = $("#musim_tanaman").val();
@@ -127,13 +127,13 @@
         let deskripsi_tanaman = JSON.stringify(textDeskripsi);
         const file = pond.getFile();
 
-        if (nama_tanaman == "" || id_jenis == "" || umur_tanaman == "" || tinggi_tanaman == "" ||
+        if (nama_tanaman == "" || id_genus == "" || umur_tanaman == "" || tinggi_tanaman == "" ||
             umur_tanaman == "" || musim_tanaman == "" || textDeskripsi == "" || file == null) {
             Swal.fire('Ups !', "Isi Seluruh Data", 'warning');
         } else {
             // Masukan Ke dalam model
             model.nama_tanaman = $("#nama_tanaman").val();
-            model.id_jenis = $("#id_jenis").val();
+            model.id_genus = $("#id_genus").val();
             model.umur_tanaman = $("#umur_tanaman").val();
             model.tinggi_tanaman = $("#tinggi_tanaman").val();
             model.musim_tanaman = $("#musim_tanaman").val();
@@ -188,8 +188,8 @@
         dataJenis = <?= $dataJenis ?>;
         dataJenis.forEach(function(element, index) {
             dataJenis[index] = {
-                id: element.id_jenis,
-                text: element.nama_jenis
+                id: element.id_genus,
+                text: element.nama_genus
             }
         });
 

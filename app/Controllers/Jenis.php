@@ -48,6 +48,7 @@ class Jenis extends BaseController
             'title' => 'Jenis',
             'model' => $response,
         ];
+
         return view('Jenis/formEdit', $data);
     }
 

@@ -14,23 +14,23 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item <?= ($title == 'Dashboard') ? 'active' : '' ?>">
                     <a href="<?= base_url('/dashboard') ?>" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item <?= ($title == 'Data Table') ? 'active' : '' ?>">
-                    <a href="<?= base_url('/datatables') ?>" class="sidebar-link">
+                <li class="sidebar-item <?= ($title == 'Tanaman') ? 'active' : '' ?>">
+                    <a href="<?= base_url('/tanaman') ?>" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Data Pohon</span>
+                        <span>Data Tanaman</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                <li class="sidebar-item <?= ($title == 'Jenis') ? 'active' : '' ?>">
+                    <a href="<?= base_url('/jenis') ?>" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Jenis Tanaman</span>
+                        <span>Genus Tanaman</span>
                     </a>
                 </li>
             </ul>

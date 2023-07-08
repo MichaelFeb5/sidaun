@@ -117,10 +117,10 @@
                     data: 'nama_tanaman',
                 },
                 {
-                    data: 'nama_jenis',
+                    data: 'nama_genus',
                 },
                 {
-                    data: 'nama_jenis',
+                    data: 'nama_family',
                 },
                 {
                     data: '',

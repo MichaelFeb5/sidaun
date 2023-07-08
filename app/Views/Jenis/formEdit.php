@@ -68,7 +68,7 @@
                                             <button class="btn btn-primary me-1 mb-1" onclick="onSave()">
                                                 Submit
                                             </button>
-                                            <button class="btn btn-danger me-1 mb-1">
+                                            <button class="btn btn-danger me-1 mb-1" onclick="onBatal()">
                                                 Batalkan
                                             </button>
                                         </div>
@@ -89,7 +89,7 @@
     var app = {};
     var form = {};
     var model = {};
-    model.id_jenis = <?= $model['id_jenis'] ?>
+    model.id_genus = <?= $model['id_genus'] ?>
 
     // Inisiate quill editor
     var snow2 = new Quill('#snow2', {
@@ -97,7 +97,8 @@
     });
 
     let deskripsiFamily = {};
-    deskripsiFamily = JSON.parse(<?php echo json_encode($model['deskripsi_familiy']); ?>);
+    deskripsiFamily = JSON.parse(<?php echo json_encode($model['deskripsi_family']); ?>);
+
     snow2.setContents(deskripsiFamily)
 
     function onSave() {
@@ -135,6 +136,10 @@
         }).always(function() {
             // app.form.isSaving = false;
         })
+    }
+
+    function onBatal() {
+        window.location.replace("<?= base_url(); ?>Jenis");
     }
 
     $(document).ready(function() {

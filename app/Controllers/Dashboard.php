@@ -13,9 +13,15 @@ class Dashboard extends BaseController
         helper('cookie');
 
         $DataTanaman = new \App\Models\DataTanaman();
-        
+        $DataJenis = new \App\Models\DataJenis();
+
+        $res = $DataTanaman->getTotalRows();
+        $res2 = $DataJenis->getTotalRows();
+
         $data = [
             'title' => 'Dashboard',
+            'totalTanaman' => $res,
+            'totalGenus' => $res2,
         ];
 
         return view('dashboard/index', $data);

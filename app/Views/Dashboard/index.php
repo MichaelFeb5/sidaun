@@ -23,7 +23,7 @@
                                     <h6 class="text-muted font-semibold">
                                         Total Tanaman
                                     </h6>
-                                    <h6 class="font-extrabold mb-0" id="total_tanaman">112.000</h6>
+                                    <h6 class="font-extrabold mb-0" id="total_tanaman"></h6>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Total Genus</h6>
-                                    <h6 class="font-extrabold mb-0" id="total_genus">183.000</h6>
+                                    <h6 class="font-extrabold mb-0" id="total_genus"></h6>
                                 </div>
                             </div>
                         </div>
@@ -67,6 +67,14 @@
 
 <script src="http://sidaun.test/assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="http://sidaun.test/assets/static/js/pages/dashboard.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Mengubah nilai menggunakan text()
+        $("#total_tanaman").text("<?= $totalTanaman ?>" + " Buah");
+        $("#total_genus").text("<?= $totalGenus ?>" + " Genus");
+    });
+</script>
 
 
 <?= $this->endSection('javascript') ?>
