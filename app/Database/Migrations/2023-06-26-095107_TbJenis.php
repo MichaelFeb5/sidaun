@@ -15,12 +15,20 @@ class TbJenis extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'nama_jenis' => [
+            'nama_genus' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'deskripsi_genus' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
             'nama_family' => [
                 'type' => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'deskripsi_family' => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
             'created_at' => [
