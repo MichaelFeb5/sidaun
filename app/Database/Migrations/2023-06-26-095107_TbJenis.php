@@ -9,7 +9,7 @@ class TbJenis extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id_jenis' => [
+            'id_genus' => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
@@ -20,16 +20,14 @@ class TbJenis extends Migration
                 'constraint' => '100',
             ],
             'deskripsi_genus' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'type'       => 'TEXT',
             ],
             'nama_family' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
             'deskripsi_family' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'type'       => 'TEXT',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -41,7 +39,7 @@ class TbJenis extends Migration
             ],
             
         ]);
-        $this->forge->addPrimaryKey('id_jenis');
+        $this->forge->addPrimaryKey('id_genus');
         $this->forge->createTable('data_jenis');
     }
 
