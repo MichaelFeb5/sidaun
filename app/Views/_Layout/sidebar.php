@@ -12,24 +12,24 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-title">Menu</li>
+                <li class="sidebar-title" style="color: white;">Menu</li>
 
                 <li class="sidebar-item <?= ($title == 'Dashboard') ? 'active' : '' ?>">
                     <a href="<?= base_url('/dashboard') ?>" class="sidebar-link">
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-house-fill" style="color: #588157;"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item <?= ($title == 'Tanaman') ? 'active' : '' ?>">
                     <a href="<?= base_url('/tanaman') ?>" class="sidebar-link">
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-tree-fill" style="color: #588157;"></i>
                         <span>Tanaman</span>
                     </a>
                 </li>
                 <li class="sidebar-item <?= ($title == 'Jenis') ? 'active' : '' ?>">
                     <a href="<?= base_url('/jenis') ?>" class="sidebar-link">
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="fa fa-book" style="color: #588157;"></i>
                         <span>Genus</span>
                     </a>
                 </li>

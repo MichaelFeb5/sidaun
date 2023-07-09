@@ -4,7 +4,7 @@
 <?= $this->section('content') ?>
 
 <div class="page-heading">
-    <h3>Dashboard</h3>
+    <h3><b>Dashboard</b></h3>
 </div>
 <div class="page-content">
     <section class="row">
@@ -15,7 +15,7 @@
                         <div class="card-body px-4 py-4-5">
                             <div class="row d-flex justify-content-center text-center">
                                 <div class="d-flex justify-content-center">
-                                    <div class="stats-icon purple mb-2">
+                                    <div class="stats-icon green mb-2">
                                         <i class="fa fa-tree"></i>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                         <div class="card-body px-4 py-4-5">
                             <div class="row d-flex justify-content-center text-center">
                                 <div class="d-flex justify-content-center">
-                                    <div class="stats-icon blue mb-2">
+                                    <div class="stats-icon green mb-2">
                                         <i class="fa fa-book"></i>
                                     </div>
                                 </div>
@@ -73,6 +73,8 @@
         // Mengubah nilai menggunakan text()
         $("#total_tanaman").text("<?= $totalTanaman ?>" + " Buah");
         $("#total_genus").text("<?= $totalGenus ?>" + " Genus");
+
+        $("#chart-profile-visit").find(".apexcharts-bar-area").css("fill", "#588157");
     });
 </script>
 

@@ -5,7 +5,7 @@
     <div class="page-title">
         <div class="row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3>Tanaman</h3>
+                <h3><b>Tanaman</b></h3>
                 <p class="text-subtitle text-muted">Menampilkan fitur yang berhubungan dengan data Tanaman</p>
             </div>
             <div class="content-header-right text-md-right col-md-6 col-12 mb-2">
@@ -16,7 +16,7 @@
                             <li class="breadcrumb-item active" aria-current="page">DataTable</li>
                         </ol>
                         <div class="text-left ">
-                            <button onclick="onNew()" style="width: 180px;" class="btn btn-primary "><i class="fa fa-plus"></i> Tambah</i></button>
+                            <button onclick="onNew()" style="width: 180px;" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</i></button>
                         </div>
                     </nav>
                 </div>
