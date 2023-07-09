@@ -75,13 +75,13 @@ class Login extends BaseController
             'username' => [
                 'rules'  => 'required|alpha_numeric_space|min_length[5]',
                 'errors' => [
-                    'required' => 'Username Harus Diisi.',
+                    'required' => 'Username Harus Diisi minimal 5 karakter.',
                 ],
             ],
             'password'    => [
-                'rules'  => 'required|min_length[8]|max_length[100]',
+                'rules'  => 'required|min_length[5]|max_length[100]',
                 'errors' => [
-                    'required' => 'Password harus diisi.',
+                    'required' => 'Password harus Diisi minimal 5 karakter.',
                 ],
             ],
         ];
