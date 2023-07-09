@@ -13,8 +13,8 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?= $pohon[0] -> nama_tanaman ?></li>
+                            <li class="breadcrumb-item"><a href="">Tanaman</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?= $pohon[0]->nama_tanaman ?></li>
                         </ol>
                     </nav>
                 </div>
@@ -60,9 +60,16 @@
                     <h4 class="card-title">Nama family: <?= $pohon[0]->nama_family ?></h4>
                 </div>
                 <div class="card-body">
-                    <?= $pohon[0]->deskripsi_family ?> : Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quas omnis laudantium tempore
-                    exercitationem, expedita aspernatur sed officia asperiores unde tempora maxime odio reprehenderit
-                    distinctio incidunt! Vel aspernatur dicta consequatur!
+                    <?php
+                    $decoded = json_decode($pohon[0]->deskripsi_family);
+
+                    foreach ($decoded->ops as $op) {
+                        if (isset($op->insert)) {
+                            echo $op->insert;
+                        }
+                    }
+                    $pohon[0]->deskripsi_family
+                    ?>
                 </div>
             </div>
             <div class="card">
@@ -70,7 +77,16 @@
                     <h4 class="card-title">Nama genus: <?= $pohon[0]->nama_genus ?></h4>
                 </div>
                 <div class="card-body">
-                    <?= $pohon[0]->deskripsi_genus ?> 
+                    <?php
+                    $decoded = json_decode($pohon[0]->deskripsi_genus   );
+
+                    foreach ($decoded->ops as $op) {
+                        if (isset($op->insert)) {
+                            echo $op->insert;
+                        }
+                    }
+                    $pohon[0]->deskripsi_genus  
+                    ?>
                 </div>
             </div>
             <div class="card">
@@ -86,7 +102,7 @@
                             echo $op->insert;
                         }
                     }
-                    $pohon[0]-> deskripsi_tanaman
+                    $pohon[0]->deskripsi_tanaman
                     ?>
                 </div>
             </div>
