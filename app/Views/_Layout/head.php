@@ -20,37 +20,11 @@
 <link rel="stylesheet" href="http://sidaun.test/assets/extensions/quill/quill.snow.css" />
 
 <style>
-    #app {
-        background-color: #C3DBD8;
-    }
-
-    .sidebar-item.active .bi,
-    .sidebar-item.active .bi {
-        color: white !important;
+    .sidebar-wrapper {
+        background-color: #77AD76;
     }
 
     .sidebar-item.active a {
         background-color: #588157 !important;
-    }
-
-    .stats-icon i {
-        color: white;
-    }
-
-    .stats-icon.green {
-        background-color: #588157;
-    }
-
-    h3,
-    h4,
-    h5,
-    p {
-        color: #436343;
-    }
-
-    .btn {
-        width: 180px;
-        background-color: #588157;
-        color: white;
     }
 </style>
