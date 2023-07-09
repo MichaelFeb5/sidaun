@@ -48,7 +48,6 @@ $routes->get('/Datatables', 'Datatables::index');
 $routes->resource('/pohon', ['controller' => 'pohonController']);
 
 
-$routes->get('/Viewer', 'Viewer::index');
 $routes->get('/Viewer/details', 'Viewer::details/$1');
 /*
  * --------------------------------------------------------------------
