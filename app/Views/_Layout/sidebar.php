@@ -24,13 +24,13 @@
                 <li class="sidebar-item <?= ($title == 'Tanaman') ? 'active' : '' ?>">
                     <a href="<?= base_url('/tanaman') ?>" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Data Tanaman</span>
+                        <span>Tanaman</span>
                     </a>
                 </li>
                 <li class="sidebar-item <?= ($title == 'Jenis') ? 'active' : '' ?>">
                     <a href="<?= base_url('/jenis') ?>" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
-                        <span>Genus Tanaman</span>
+                        <span>Genus</span>
                     </a>
                 </li>
             </ul>

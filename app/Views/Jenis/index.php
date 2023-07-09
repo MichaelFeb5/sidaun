@@ -7,14 +7,14 @@
     <div class="page-title">
         <div class="row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3>Data Genus</h3>
-                <p class="text-subtitle text-muted">A sortable, searchable, paginated table without dependencies thanks to simple-datatables</p>
+                <h3>Genus</h3>
+                <p class="text-subtitle text-muted">Menampilkan fitur yang berhubungan dengan data Genus dan Family Tanaman</p>
             </div>
             <div class="content-header-right text-md-right col-md-6 col-12 mb-2">
                 <div class="top">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Genus</a></li>
+                            <li class="breadcrumb-item"><a href="">Genus</a></li>
                             <li class="breadcrumb-item active" aria-current="page">DataTable</li>
                         </ol>
                         <div class="text-left ">
