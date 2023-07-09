@@ -16,21 +16,21 @@
 
                 <li class="sidebar-item <?= ($title == 'Dashboard') ? 'active' : '' ?>">
                     <a href="<?= base_url('/dashboard') ?>" class="sidebar-link">
-                        <i class="bi bi-house-fill" style="color: #588157;"></i>
-                        <span>Dashboard</span>
+                        <i class="bi bi-house-fill" style="color: white;"></i>
+                        <span style="color: white;">Dashboard</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item <?= ($title == 'Tanaman') ? 'active' : '' ?>">
                     <a href="<?= base_url('/tanaman') ?>" class="sidebar-link">
-                        <i class="bi bi-tree-fill" style="color: #588157;"></i>
-                        <span>Tanaman</span>
+                        <i class="bi bi-tree-fill" style="color: white;"></i>
+                        <span style="color: white;">Tanaman</span>
                     </a>
                 </li>
                 <li class="sidebar-item <?= ($title == 'Jenis') ? 'active' : '' ?>">
                     <a href="<?= base_url('/jenis') ?>" class="sidebar-link">
-                        <i class="fa fa-book" style="color: #588157;"></i>
-                        <span>Genus</span>
+                        <i class="fa fa-book" style="color: white;"></i>
+                        <span style="color: white;">Genus</span>
                     </a>
                 </li>
             </ul>
