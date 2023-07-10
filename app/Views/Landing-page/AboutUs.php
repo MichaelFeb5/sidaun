@@ -174,7 +174,7 @@
                 <div class="col-md-2"></div>
 
                 <div class="col-md-8">
-                    <h1>About Us</h1>
+                    <h1 class="text-white">About Us</h1>
                     <p class="tagline">SiDaun is a team committed to introducing and educating the public about the
                         diversity of
                         plants in botanical gardens. We believe that knowledge about plants can raise awareness of the
@@ -198,7 +198,7 @@
                 <div class="col-md-2"></div>
 
                 <div class="col-md-8">
-                    <h1>Our Mission</h1>
+                    <h1 class="text-white">Our Mission</h1>
                     <p class="tagline">We are committed to providing an interactive and educational experience through
                         innovative barcode scanning technology. Our goal is to make plant identification easier, faster,
                         and more accurate, allowing everyone to enjoy the beauty and benefits offered by botanical
@@ -225,7 +225,7 @@
                 <div class="m-4 m-lg-5">
                     <div class="row">
                         <div class="col-md-7">
-                            <h1 class="display-5 fw-bold">Get Started With Us</h1><br><br>
+                            <h1 class="display-5 fw-bold text-white">Get Started With Us</h1><br><br>
                             <p class="fs-4">The cutting-edge educational platform that allows you to easily
                                 identify various plant species in the botanical garden simply by scanning the barcode
                                 attached

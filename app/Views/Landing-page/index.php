@@ -178,7 +178,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h1 class="header">Discover the Wonders of Kebun Raya Banua.</h1>
+                    <h1 class="header text-white">Discover the Wonders of Kebun Raya Banua.</h1>
                     <p class="tagline">Unleash the Magic of Botanical Garden with a Single Scan!</p>
                     <button class="button-23" role="button" id="primary-btn">Scanning Now!</button>
                     <a href="#How"><button class="button-23" role="button">See how it works</button></a>
@@ -202,7 +202,7 @@
                 <div class="m-4 m-lg-5">
                     <div class="row">
                         <div class="col-md-7">
-                            <h1 class="display-5 fw-bold">Welcome to SiDaun!</h1><br><br>
+                            <h1 class="display-5 fw-bold text-white">Welcome to SiDaun!</h1><br><br>
                             <p class="fs-4">The cutting-edge educational platform that allows you to easily
                                 identify various plant species in the botanical garden simply by scanning the barcode
                                 attached
@@ -236,7 +236,7 @@
                 <div class="col-md-6">
                     <p class="sub-title">I N O V A T I V E
                     <p>
-                    <h2 class="h2-title">Automatic Plant Identification</h2>
+                    <h2 class="h2-title text-white">Automatic Plant Identification</h2>
                     <p>SiDaun utilizes advanced barcode scanning technology to accurately and quickly identify plants.
                         No more searching or asking experts, SiDaun provides you with the information you need in a
                         matter of seconds.</p><br>
@@ -253,9 +253,9 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-6">
-                    <p class="sub-title">I N F O R M A T I V E
+                    <p class="sub-title ">I N F O R M A T I V E
                     <p>
-                    <h2 class="h2-title">Comprehensive Information</h2>
+                    <h2 class="h2-title text-white">Comprehensive Information</h2>
                     <p>After scanning, SiDaun will provide you with complete information about the plant, including its
                         scientific name, origin, description, uses, and even care tips.</p><br>
                     <button class="button-23" role="button">Try Now</button>
@@ -280,7 +280,7 @@
                 <div class="col-md-6">
                     <p class="sub-title">I N T E R A C T I V E
                     <p>
-                    <h2 class="h2-title">Interactive Exploration</h2>
+                    <h2 class="h2-title text-white">Interactive Exploration</h2>
                     <p>Discover botanical gardens with a wide array of stunning plants through our interactive
                         exploration feature. Explore various areas, encounter rare plants, and learn more about
                         biodiversity.</p><br>
