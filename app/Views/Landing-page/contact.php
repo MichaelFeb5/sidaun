@@ -7,17 +7,17 @@
     <title>Contact</title>
 
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="http://sidaun.test/assets/images/landing-page/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url()?>assets/images/landing-page/favicon.ico" />
 
     <!-- Bootstrap icons-->
     <link href="http://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" href="http://sidaun.test/assets/compiled/css/app.css" />
+    <link rel="stylesheet" href="<?= base_url()?>assets/compiled/css/app.css" />
 
     <!-- Font llink-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
-    <link rel="stylesheet" href="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="<?= base_url()?>assets/extensions/sweetalert2/sweetalert2.min.css" />
 
     <style>
         body {
@@ -173,7 +173,7 @@
         <div class="container px-lg-5">
             <div class="row">
                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-                    <img src="http://sidaun.test/assets/images/landing-page/3d-casual-life-scanning-qr-code.png" style="width: 350px;" alt="pict1">
+                    <img src="<?= base_url()?>assets/images/landing-page/3d-casual-life-scanning-qr-code.png" style="width: 350px;" alt="pict1">
                 </div>
 
                 <div class="col-md-6">
@@ -212,7 +212,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <script src="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.js"></script>
+    <script src="<?= base_url()?>assets/extensions/sweetalert2/sweetalert2.js"></script>
 
     <script>
         function notif() {
