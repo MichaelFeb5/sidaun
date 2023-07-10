@@ -17,6 +17,7 @@
 
     <!-- Font llink-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
+    <link rel="stylesheet" href="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.min.css" />
 
     <style>
         body {
@@ -232,7 +233,7 @@
                                 to the trees or plants you encounter. Enjoy a delightful and informative experience with
                                 our
                                 innovative technology.</p>
-                            <button class="button-23" role="button" id="primary-btn">Scanning Now!</button>
+                            <button class="button-23" role="button" id="primary-btn" onclick="demo()">Scanning Now!</button>
                             <br><br>
                         </div>
 
@@ -259,6 +260,26 @@
 
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.js"></script>
+
+    <script>
+        function notif() {
+            Swal.fire({
+                title: 'Oops !',
+                text: "Fitur ini sedang dikembangkan, hanya fitur Login yang bisa",
+                icon: 'warning',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.replace("<?= base_url()?>Login")
+                }
+            })
+        }
+
+        function demo() {
+            window.location.replace("<?= base_url("viewer/demo")?>")
+        }
+    </script>
+
 </body>
 
 </html>

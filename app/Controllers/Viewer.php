@@ -29,4 +29,13 @@ class Viewer extends BaseController
             return redirect()->to('/error');
         }
     }
+
+    public function demo()
+    {
+        $data = [
+            'title' => 'Demo'
+        ];
+
+        return view('viewer/indexDemo', $data);
+    }
 }
