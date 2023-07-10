@@ -176,7 +176,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h1 class="header-2">Contact Us.</h1>
+                    <h1 class="header-2 text-white">Contact Us.</h1>
                     <p>Discover the Wonders of Banjarbaru. Feel free to get in touch.</p>
                     <form>
                         <div class="form-group">
