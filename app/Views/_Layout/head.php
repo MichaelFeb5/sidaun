@@ -20,6 +20,12 @@
 <link rel="stylesheet" href="http://sidaun.test/assets/extensions/quill/quill.snow.css" />
 
 <style>
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .sidebar-wrapper {
         background-color: #77AD76;
     }
