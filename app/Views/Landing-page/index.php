@@ -19,6 +19,8 @@
 
     <!-- Font llink-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
+    <link rel="stylesheet" href="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.min.css" />
+
 
     <style>
         body {
@@ -152,13 +154,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url()?>">Home</a>
+                        <a class="nav-link" href="<?= base_url() ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url()?>Landingpage/aboutus">About Us</a>
+                        <a class="nav-link" href="<?= base_url() ?>Landingpage/aboutus">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url()?>Landingpage/contact">Contact</a>
+                        <a class="nav-link" href="<?= base_url() ?>Landingpage/contact">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url() ?>Login">Login</a>
@@ -178,10 +180,10 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h1 class="header text-white">Discover the Wonders of Kebun Raya Banua.</h1>
+                    <h1 class="header text-white">Discover the Wonders of Plants.</h1>
                     <p class="tagline">Unleash the Magic of Botanical Garden with a Single Scan!</p>
-                    <button class="button-23" role="button" id="primary-btn">Scanning Now!</button>
-                    <a href="#How"><button class="button-23" role="button">See how it works</button></a>
+                    <button class="button-23" role="button" id="primary-btn" onclick="demo()">Scanning Now!</button>
+                    <a href="#How"><button class="button-23" role="button" onclick="">See how it works</button></a>
                 </div>
             </div>
         </div>
@@ -209,7 +211,7 @@
                                 to the trees or plants you encounter. Enjoy a delightful and informative experience with
                                 our
                                 innovative technology.</p>
-                            <button class="button-23" role="button" id="primary-btn">Scanning Now!</button>
+                            <button class="button-23" role="button" id="primary-btn" onclick="demo()">Scanning Now!</button>
                             <br><br>
                         </div>
 
@@ -240,7 +242,7 @@
                     <p>SiDaun utilizes advanced barcode scanning technology to accurately and quickly identify plants.
                         No more searching or asking experts, SiDaun provides you with the information you need in a
                         matter of seconds.</p><br>
-                    <button class="button-23" role="button">Try Now</button>
+                    <button class="button-23" role="button" onclick="demo()">Try Now</button>
                 </div>
             </div>
         </div>
@@ -258,7 +260,7 @@
                     <h2 class="h2-title text-white">Comprehensive Information</h2>
                     <p>After scanning, SiDaun will provide you with complete information about the plant, including its
                         scientific name, origin, description, uses, and even care tips.</p><br>
-                    <button class="button-23" role="button">Try Now</button>
+                    <button class="button-23" role="button" onclick="demo()">Try Now</button>
                 </div>
 
                 <div class="col-md-5 d-flex justify-content-center align-items-center">
@@ -284,7 +286,7 @@
                     <p>Discover botanical gardens with a wide array of stunning plants through our interactive
                         exploration feature. Explore various areas, encounter rare plants, and learn more about
                         biodiversity.</p><br>
-                    <button class="button-23" role="button">Try Now</button>
+                    <button class="button-23" role="button" onclick="demo()">Try Now</button>
                 </div>
             </div>
         </div>
@@ -305,6 +307,25 @@
     <script src="http://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.js"></script>
+
+    <script>
+        function notif() {
+            Swal.fire({
+                title: 'Oops !',
+                text: "Fitur ini sedang dikembangkan, hanya fitur Login yang bisa",
+                icon: 'warning',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.replace("<?= base_url()?>Login")
+                }
+            })
+        }
+
+        function demo() {
+            window.location.replace("<?= base_url("viewer/demo")?>")
+        }
+    </script>
 </body>
 
 </html>

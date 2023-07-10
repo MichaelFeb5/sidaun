@@ -17,6 +17,7 @@
 
     <!-- Font llink-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
+    <link rel="stylesheet" href="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.min.css" />
 
     <style>
         body {
@@ -191,7 +192,7 @@
                             <label for="formGroupExampleInput2">Message</label>
                             <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="question">
                         </div>
-                        <button type="submit" class="button-23" role="button" id="primary-btn">Send Message</button>
+                        <button type="submit" class="button-23" role="button" id="primary-btn" onclick="notif()">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -211,6 +212,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.js"></script>
+
+    <script>
+        function notif() {
+            Swal.fire({
+                title: 'Oops !',
+                text: "Fitur ini sedang dikembangkan, hanya fitur Login yang bisa",
+                icon: 'warning',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.replace("<?= base_url()?>Login")
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

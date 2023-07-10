@@ -21,7 +21,7 @@ class Tanaman extends BaseController
     public function index()
     {
         if (!$this->request->getCookie('akun')) {
-            return redirect()->to(base_url()); // Redirect ke halaman login
+            return redirect()->to(base_url("Login")); // Redirect ke halaman login
         }
 
         $data = [
@@ -45,7 +45,7 @@ class Tanaman extends BaseController
     public function detailEdit($id)
     {
         if (!$this->request->getCookie('akun')) {
-            return redirect()->to(base_url()); // Redirect ke halaman login
+            return redirect()->to(base_url("Login")); // Redirect ke halaman login
         }
 
         $DataTanaman = new \App\Models\DataTanaman();
@@ -65,7 +65,7 @@ class Tanaman extends BaseController
     public function tambah()
     {
         if (!$this->request->getCookie('akun')) {
-            return redirect()->to(base_url()); // Redirect ke halaman login
+            return redirect()->to(base_url("Login")); // Redirect ke halaman login
         }
 
         $DataJenis = new \App\Models\DataJenis();
