@@ -22,32 +22,6 @@
         </div>
         <section class="section">
             <div class="card">
-                <!-- <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Gambar Tanaman</h4>
-                    </div>
-                    <div class="card-body">
-                        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <?php foreach ($pohon as $key => $item) : ?>
-                                    <div class="carousel-item <?php echo ($key === 0) ? 'active' : ''; ?>">
-                                        <img width="200" height="200" src="<?= base_url('assets/images/tanaman/' . $item->gambar) ?>" alt="Gambar Tanaman <?= $key + 1 ?>">
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-            <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Gambar tanaman</h4>
                 </div>
@@ -78,14 +52,14 @@
                 </div>
                 <div class="card-body">
                     <?php
-                    $decoded = json_decode($pohon[0]->deskripsi_genus   );
+                    $decoded = json_decode($pohon[0]->deskripsi_genus);
 
                     foreach ($decoded->ops as $op) {
                         if (isset($op->insert)) {
                             echo $op->insert;
                         }
                     }
-                    $pohon[0]->deskripsi_genus  
+                    $pohon[0]->deskripsi_genus
                     ?>
                 </div>
             </div>
@@ -94,16 +68,7 @@
                     <h4 class="card-title">Deskripsi tanaman </h4>
                 </div>
                 <div class="card-body">
-                    <?php
-                    $decoded = json_decode($pohon[0]->deskripsi_tanaman);
-
-                    foreach ($decoded->ops as $op) {
-                        if (isset($op->insert)) {
-                            echo $op->insert;
-                        }
-                    }
-                    $pohon[0]->deskripsi_tanaman
-                    ?>
+                    <p id="deskripsi-tanaman"></p>
                 </div>
             </div>
         </section>
@@ -111,3 +76,19 @@
 </div>
 
 <?= $this->endSection('content') ?>
+
+<?= $this->section('javascript') ?>
+<script>
+   
+
+    // Mendapatkan data teks dari Quill Editor
+    var deskripsiJSON = '{"ops":[{"insert":"Paragraf pertama."},{"insert":"\n\n"},{"insert":"Paragraf kedua."}]}';
+    var deskripsiObj = JSON.parse(deskripsiJSON);
+    var deskripsiHTML = '';
+
+    
+
+    // Menampilkan teks hasil pemrosesan
+    document.getElementById('deskripsi_tanaman').innerHTML = deskripsiHTML;
+</script>
+<?= $this->endSection('javascript') ?>

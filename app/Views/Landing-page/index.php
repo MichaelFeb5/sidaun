@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
     <link rel="stylesheet" href="<?= base_url()?>assets/extensions/sweetalert2/sweetalert2.min.css" />
 
-
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -323,7 +322,7 @@
         }
 
         function demo() {
-            window.location.replace("<?= base_url("viewer/demo")?>")
+            window.location.replace("<?= base_url("viewer")?>")
         }
     </script>
 </body>

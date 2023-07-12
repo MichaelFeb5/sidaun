@@ -192,8 +192,8 @@
                             <label for="formGroupExampleInput2">Message</label>
                             <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="question">
                         </div>
-                        <button type="submit" class="button-23" role="button" id="primary-btn" onclick="notif()">Send Message</button>
                     </form>
+                    <button class="button-23" role="button" id="primary-btn" onclick="notif()">Send Message</button>
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.js"></script>   
     <script src="<?= base_url()?>assets/extensions/sweetalert2/sweetalert2.js"></script>
 
     <script>

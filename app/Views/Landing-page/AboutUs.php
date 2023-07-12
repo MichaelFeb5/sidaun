@@ -7,17 +7,17 @@
     <title>About Us</title>
 
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="http://sidaun.test/assets/images/landing-page/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url()?>assets/images/landing-page/favicon.ico" />
 
     <!-- Bootstrap icons-->
     <link href="http://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" href="http://sidaun.test/assets/compiled/css/app.css" />
+    <link rel="stylesheet" href="<?= base_url()?>assets/compiled/css/app.css" />
 
     <!-- Font llink-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
-    <link rel="stylesheet" href="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="<?= base_url()?>assets/extensions/sweetalert2/sweetalert2.min.css" />
 
     <style>
         body {
@@ -189,7 +189,7 @@
     <!-- End of Header-->
 
     <div class="d-flex justify-content-center align-items-center">
-        <img src="http://sidaun.test/assets/images/landing-page/casual-life-3d-young-people-in-the-aprons-with-gadgets.png" class="about-pict" alt="">
+        <img src="<?= base_url()?>assets/images/landing-page/casual-life-3d-young-people-in-the-aprons-with-gadgets.png" class="about-pict" alt="">
     </div>
 
     <!-- Mission-->
@@ -238,7 +238,7 @@
                         </div>
 
                         <div class="col-md-5 d-flex justify-content-center align-items-center">
-                            <img src="http://sidaun.test/assets/images/landing-page/casual-life-3d-monstera-plant-with-holes-in-its-leaves.png" class="content-pict" alt="pict2">
+                            <img src="<?= base_url()?>assets/images/landing-page/casual-life-3d-monstera-plant-with-holes-in-its-leaves.png" class="content-pict" alt="pict2">
                         </div>
                     </div>
                 </div>
@@ -260,7 +260,7 @@
 
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <script src="http://sidaun.test/assets/extensions/sweetalert2/sweetalert2.js"></script>
+    <script src="<?= base_url()?>assets/extensions/sweetalert2/sweetalert2.js"></script>
 
     <script>
         function notif() {
@@ -276,7 +276,7 @@
         }
 
         function demo() {
-            window.location.replace("<?= base_url("viewer/demo")?>")
+            window.location.replace("<?= base_url("viewer/")?>")
         }
     </script>
 

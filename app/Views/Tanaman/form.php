@@ -54,13 +54,13 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="umur_tanaman">Umur</label>
-                                                <input type="number" id="umur_tanaman" class="form-control" name="umur_tanaman" placeholder="Umur" />
+                                                <input type="number" id="umur_tanaman" class="form-control" name="umur_tanaman" placeholder="Umur" min="0" oninput="validity.valid||(value='');" />
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="tinggi_tanaman">Tinggi</label>
-                                                <input type="number" id="tinggi_tanaman" class="form-control" name="tinggi_tanaman" placeholder="Tinggi" />
+                                                <input type="number" id="tinggi_tanaman" class="form-control" name="tinggi_tanaman" placeholder="Tinggi" min="0" oninput="validity.valid||(value='');"/>
                                             </div>
                                         </div>
                                         <div class="col-12">

@@ -23,19 +23,20 @@ class Viewer extends BaseController
                 'title' => 'Data Table',
                 'pohon' => $pohon
             ];
-            return view('viewer/index', $data);
+
+            return view('Viewer/index', $data);
         } else {
             // Handle jika $id tidak diberikan, misalnya menampilkan pesan error atau mengalihkan ke halaman lain
             return redirect()->to('/error');
         }
     }
 
-    public function demo()
+    public function index()
     {
         $data = [
             'title' => 'Demo'
         ];
 
-        return view('viewer/indexDemo', $data);
+        return view('Viewer/indexDemo', $data);
     }
 }
